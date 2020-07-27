@@ -1,0 +1,1853 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>04 基本数据类型</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+/* Flowchart variables */
+/* Sequence Diagram variables */
+/* Gantt chart variables */
+/* state colors */
+.label {
+  
+  color: #333; }
+
+.label text {
+  fill: #333; }
+
+.node rect,
+.node circle,
+.node ellipse,
+.node polygon {
+  fill: #BDD5EA;
+  stroke: #9370DB;
+  stroke-width: 1px; }
+
+.node .label {
+  text-align: center; }
+
+.node.clickable {
+  cursor: pointer; }
+
+.arrowheadPath {
+  fill: lightgrey; }
+
+.edgePath .path {
+  stroke: lightgrey;
+  stroke-width: 1.5px; }
+
+.edgeLabel {
+  background-color: #e8e8e8;
+  text-align: center; }
+
+.cluster rect {
+  fill: #6D6D65;
+  stroke: rgba(255, 255, 255, 0.25);
+  stroke-width: 1px; }
+
+.cluster text {
+  fill: #F9FFFE; }
+
+div.mermaidTooltip {
+  position: absolute;
+  text-align: center;
+  max-width: 200px;
+  padding: 2px;
+  
+  font-size: 12px;
+  background: #6D6D65;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 100; }
+
+.actor {
+  stroke: #81B1DB;
+  fill: #BDD5EA; }
+
+text.actor {
+  fill: black;
+  stroke: none; }
+
+.actor-line {
+  stroke: lightgrey; }
+
+.messageLine0 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  stroke: lightgrey; }
+
+.messageLine1 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  stroke: lightgrey; }
+
+#arrowhead {
+  fill: lightgrey; }
+
+.sequenceNumber {
+  fill: white; }
+
+#sequencenumber {
+  fill: lightgrey; }
+
+#crosshead path {
+  fill: lightgrey !important;
+  stroke: lightgrey !important; }
+
+.messageText {
+  fill: lightgrey;
+  stroke: none; }
+
+.labelBox {
+  stroke: #81B1DB;
+  fill: #BDD5EA; }
+
+.labelText {
+  fill: #323D47;
+  stroke: none; }
+
+.loopText {
+  fill: lightgrey;
+  stroke: none; }
+
+.loopLine {
+  stroke-width: 2;
+  stroke-dasharray: '2 2';
+  stroke: #81B1DB; }
+
+.note {
+  stroke: rgba(255, 255, 255, 0.25);
+  fill: #fff5ad; }
+
+.noteText {
+  fill: black;
+  stroke: none;
+  
+  font-size: 14px; }
+
+.activation0 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+.activation1 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+.activation2 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+/** Section styling */
+.section {
+  stroke: none;
+  opacity: 0.2; }
+
+.section0 {
+  fill: rgba(255, 255, 255, 0.3); }
+
+.section2 {
+  fill: #EAE8B9; }
+
+.section1,
+.section3 {
+  fill: white;
+  opacity: 0.2; }
+
+.sectionTitle0 {
+  fill: #F9FFFE; }
+
+.sectionTitle1 {
+  fill: #F9FFFE; }
+
+.sectionTitle2 {
+  fill: #F9FFFE; }
+
+.sectionTitle3 {
+  fill: #F9FFFE; }
+
+.sectionTitle {
+  text-anchor: start;
+  font-size: 11px;
+  text-height: 14px;
+   }
+
+/* Grid and axis */
+.grid .tick {
+  stroke: lightgrey;
+  opacity: 0.3;
+  shape-rendering: crispEdges; }
+
+.grid path {
+  stroke-width: 0; }
+
+/* Today line */
+.today {
+  fill: none;
+  stroke: #DB5757;
+  stroke-width: 2px; }
+
+/* Task styling */
+/* Default task */
+.task {
+  stroke-width: 2; }
+
+.taskText {
+  text-anchor: middle;
+   }
+
+.taskText:not([font-size]) {
+  font-size: 11px; }
+
+.taskTextOutsideRight {
+  fill: #323D47;
+  text-anchor: start;
+  font-size: 11px;
+   }
+
+.taskTextOutsideLeft {
+  fill: #323D47;
+  text-anchor: end;
+  font-size: 11px; }
+
+/* Special case clickable */
+.task.clickable {
+  cursor: pointer; }
+
+.taskText.clickable {
+  cursor: pointer;
+  fill: #003163 !important;
+  font-weight: bold; }
+
+.taskTextOutsideLeft.clickable {
+  cursor: pointer;
+  fill: #003163 !important;
+  font-weight: bold; }
+
+.taskTextOutsideRight.clickable {
+  cursor: pointer;
+  fill: #003163 !important;
+  font-weight: bold; }
+
+/* Specific task settings for the sections*/
+.taskText0,
+.taskText1,
+.taskText2,
+.taskText3 {
+  fill: #323D47; }
+
+.task0,
+.task1,
+.task2,
+.task3 {
+  fill: #BDD5EA;
+  stroke: rgba(255, 255, 255, 0.5); }
+
+.taskTextOutside0,
+.taskTextOutside2 {
+  fill: lightgrey; }
+
+.taskTextOutside1,
+.taskTextOutside3 {
+  fill: lightgrey; }
+
+/* Active task */
+.active0,
+.active1,
+.active2,
+.active3 {
+  fill: #81B1DB;
+  stroke: rgba(255, 255, 255, 0.5); }
+
+.activeText0,
+.activeText1,
+.activeText2,
+.activeText3 {
+  fill: #323D47 !important; }
+
+/* Completed task */
+.done0,
+.done1,
+.done2,
+.done3 {
+  stroke: grey;
+  fill: lightgrey;
+  stroke-width: 2; }
+
+.doneText0,
+.doneText1,
+.doneText2,
+.doneText3 {
+  fill: #323D47 !important; }
+
+/* Tasks on the critical line */
+.crit0,
+.crit1,
+.crit2,
+.crit3 {
+  stroke: #E83737;
+  fill: #E83737;
+  stroke-width: 2; }
+
+.activeCrit0,
+.activeCrit1,
+.activeCrit2,
+.activeCrit3 {
+  stroke: #E83737;
+  fill: #81B1DB;
+  stroke-width: 2; }
+
+.doneCrit0,
+.doneCrit1,
+.doneCrit2,
+.doneCrit3 {
+  stroke: #E83737;
+  fill: lightgrey;
+  stroke-width: 2;
+  cursor: pointer;
+  shape-rendering: crispEdges; }
+
+.milestone {
+  transform: rotate(45deg) scale(0.8, 0.8); }
+
+.milestoneText {
+  font-style: italic; }
+
+.doneCritText0,
+.doneCritText1,
+.doneCritText2,
+.doneCritText3 {
+  fill: #323D47 !important; }
+
+.activeCritText0,
+.activeCritText1,
+.activeCritText2,
+.activeCritText3 {
+  fill: #323D47 !important; }
+
+.titleText {
+  text-anchor: middle;
+  font-size: 18px;
+  fill: #323D47;
+   }
+
+g.classGroup text {
+  fill: #9370DB;
+  stroke: none;
+  
+  font-size: 10px; }
+  g.classGroup text .title {
+    font-weight: bolder; }
+
+g.classGroup rect {
+  fill: #BDD5EA;
+  stroke: #9370DB; }
+
+g.classGroup line {
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+.classLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: #BDD5EA;
+  opacity: 0.5; }
+
+.classLabel .label {
+  fill: #9370DB;
+  font-size: 10px; }
+
+.relation {
+  stroke: #9370DB;
+  stroke-width: 1;
+  fill: none; }
+
+#compositionStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#compositionEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#aggregationStart {
+  fill: #BDD5EA;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#aggregationEnd {
+  fill: #BDD5EA;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#dependencyStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#dependencyEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#extensionStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#extensionEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+.commit-id,
+.commit-msg,
+.branch-label {
+  fill: lightgrey;
+  color: lightgrey;
+   }
+
+.pieTitleText {
+  text-anchor: middle;
+  font-size: 25px;
+  fill: #eee;
+}
+
+.slice {
+   }
+
+g.stateGroup text {
+  fill: #eee;
+  stroke: none;
+  font-size: 10px;
+   }
+
+g.stateGroup circle {
+  fill: white !important;
+  stroke: white !important;
+}
+
+g.stateGroup .state-title {
+  font-weight: bolder;
+  fill: black; }
+
+g.stateGroup rect {
+  fill: #ececff;
+  stroke: #9370DB; }
+
+g.stateGroup line {
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+.transition {
+  stroke: #9370DB;
+  stroke-width: 1;
+  fill: none; }
+
+.stateGroup .composit {
+  fill: #555;
+  border-bottom: 1px; }
+
+.state-note {
+  stroke: rgba(255, 255, 255, 0.25);
+  fill: #fff5ad; }
+  .state-note text {
+    fill: black;
+    stroke: none;
+    font-size: 10px; }
+
+.stateLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: #BDD5EA;
+  opacity: 0.5; }
+
+.stateLabel text {
+  fill: black;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+
+/* CSS Document */
+
+/** code highlight */
+
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-operator,
+.cm-s-inner .cm-property {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-keyword {
+    color: #C88FD0;
+}
+
+.cm-s-inner .cm-tag {
+    color: #7DF46A;
+}
+
+.cm-s-inner .cm-attribute {
+    color: #7575E4;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid #b8bfc6;
+    z-index: 3;
+}
+
+.cm-s-inner .cm-string {
+    color: #D26B6B;
+}
+
+.cm-s-inner .cm-comment,
+.cm-s-inner.cm-comment {
+    color: #DA924A;
+}
+
+.cm-s-inner .cm-header,
+.cm-s-inner .cm-def,
+.cm-s-inner.cm-header,
+.cm-s-inner.cm-def {
+    color: #8d8df0;
+}
+
+.cm-s-inner .cm-quote,
+.cm-s-inner.cm-quote {
+    color: #57ac57;
+}
+
+.cm-s-inner .cm-hr {
+    color: #d8d5d5;
+}
+
+.cm-s-inner .cm-link {
+    color: #d3d3ef;
+}
+
+.cm-s-inner .cm-negative {
+    color: #d95050;
+}
+
+.cm-s-inner .cm-positive {
+    color: #50e650;
+}
+
+.cm-s-inner .cm-string-2 {
+    color: #f50;
+}
+
+.cm-s-inner .cm-meta,
+.cm-s-inner .cm-qualifier {
+    color: #b7b3b3;
+}
+
+.cm-s-inner .cm-builtin {
+    color: #f3b3f8;
+}
+
+.cm-s-inner .cm-bracket {
+    color: #997;
+}
+
+.cm-s-inner .cm-atom,
+.cm-s-inner.cm-atom {
+    color: #84B6CB;
+}
+
+.cm-s-inner .cm-number {
+    color: #64AB8F;
+}
+
+.cm-s-inner .cm-variable {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: #9FBAD5;
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: #1cc685;
+}
+
+.CodeMirror-selectedtext,
+.CodeMirror-selected {
+    background: #4a89dc;
+    color: #fff !important;
+    text-shadow: none;
+}
+
+.CodeMirror-gutters {
+    border-right: none;
+}
+
+/* CSS Document */
+
+/** markdown source **/
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property
+{
+    color: #cebcca;
+}
+
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor{
+    border-left: 3px solid #b8bfc6;
+}
+
+.cm-s-typora-default .cm-comment {
+    color: #9FB1FF;
+}
+
+.cm-s-typora-default .cm-string {
+    color: #A7A7D9
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+    color: #848695;
+    font-style: italic;
+}
+
+.cm-s-typora-default .cm-link {
+    color: #95B94B;
+}
+
+.cm-s-typora-default .CodeMirror-activeline-background {
+    background: rgba(51, 51, 51, 0.72);
+}
+
+.cm-s-typora-default .cm-comment, .cm-s-typora-default .cm-code {
+	color: #8aa1e1;
+}@import "";
+@import "";
+@import "";
+
+:root {
+    --bg-color:  #363B40;
+    --side-bar-bg-color: #2E3033;
+    --text-color: #b8bfc6;
+
+    --select-text-bg-color:#4a89dc;
+
+    --item-hover-bg-color: #0a0d16;
+    --control-text-color: #b7b7b7;
+    --control-text-hover-color: #eee;
+    --window-border: 1px solid #555;
+
+    --active-file-bg-color: rgb(34, 34, 34);
+    --active-file-border-color: #8d8df0;
+
+    --primary-color: #a3d5fe;
+
+    --active-file-text-color: white;
+    --item-hover-bg-color: #70717d;
+    --item-hover-text-color: white;
+    --primary-color: #6dc1e7;
+
+    --rawblock-edit-panel-bd: #333;
+
+    --search-select-bg-color: #428bca;
+}
+
+html {
+    font-size: 16px;
+}
+
+html,
+body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    background: #363B40;
+    background: var(--bg-color);
+    fill: currentColor;
+    line-height: 1.625rem;
+}
+
+#write {
+    max-width: 914px;
+}
+
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea,
+div.code-tooltip-content {
+    color: #b8bfc6;
+    border-color: transparent;
+}
+
+div.code-tooltip,
+.md-hover-tip .md-arrow:after {
+    background: #333;
+}
+
+.popover.bottom > .arrow:after {
+    border-bottom-color: #333;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+hr {
+    height: 2px;
+    border: 0;
+    margin: 24px 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lucida Grande", "Corbel", sans-serif;
+    font-weight: normal;
+    clear: both;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    color: #DEDEDE
+}
+
+h1 {
+    font-size: 2.5rem;
+    /* 36px */
+    line-height: 2.75rem;
+    /* 40px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-size: 1.63rem;
+    /* 24px */
+    line-height: 1.875rem;
+    /* 30px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.17rem;
+    /* 18px */
+    line-height: 1.5rem;
+    /* 24px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.12rem;
+    /* 16px */
+    line-height: 1.375rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    color: white;
+}
+
+h5 {
+    font-size: 0.97rem;
+    /* 16px */
+    line-height: 1.25rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 0.93rem;
+    /* 16px */
+    line-height: 1rem;
+    /* 16px */
+    margin-bottom: 0.75rem;
+    color: white;
+}
+
+@media (min-width: 980px) {
+    h3.md-focus:before,
+    h4.md-focus:before,
+    h5.md-focus:before,
+    h6.md-focus:before {
+        color: #ddd;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        position: absolute;
+        left: -1.642857143rem;
+        top: .357142857rem;
+        float: left;
+        font-size: 9px;
+        padding-left: 2px;
+        padding-right: 2px;
+        vertical-align: bottom;
+        font-weight: normal;
+        line-height: normal;
+    }
+
+    h3.md-focus:before {
+        content: 'h3';
+    }
+
+    h4.md-focus:before {
+        content: 'h4';
+    }
+
+    h5.md-focus:before {
+        content: 'h5';
+        top: 0px;
+    }
+
+    h6.md-focus:before {
+        content: 'h6';
+        top: 0px;
+    }
+}
+
+a {
+    text-decoration: none;
+    outline: 0;
+}
+
+a:hover {
+    outline: 0;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+sup.md-footnote {
+    background-color: #555;
+    color: #ddd;
+}
+
+p {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+p,
+ul,
+dd,
+ol,
+hr,
+address,
+pre,
+table,
+iframe,
+.wp-caption,
+.wp-audio-shortcode,
+.wp-video-shortcode {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    /* 24px */
+}
+
+li > blockquote {
+	margin-bottom: 0;
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+::-moz-selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+*.in-text-selection,
+::selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+ul,
+ol {
+    padding: 0 0 0 1.875rem;
+    /* 30px */
+}
+
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: decimal;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin: 0;
+}
+
+b,
+th,
+dt,
+strong {
+    font-weight: bold;
+}
+
+i,
+em,
+dfn,
+cite {
+    font-style: italic;
+}
+
+blockquote {
+    padding-left: 1.875rem;
+    margin: 0 0 1.875rem 1.875rem;
+    border-left: solid 2px #474d54;
+    padding-left: 30px;
+    margin-top: 35px;
+}
+
+pre,
+code,
+kbd,
+tt,
+var {
+    font-size: 0.875rem;
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+code,
+tt,
+var {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+}
+
+pre.md-fences {
+    padding: 10px 10px 10px 30px;
+    margin-bottom: 20px;
+    background: #333;
+}
+
+.CodeMirror-gutters {
+    background: #333;
+    border-right: 1px solid transparent;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -2.2em;
+    right: 4px;
+}
+
+code,
+kbd,
+tt,
+var {
+    padding: 2px 5px;
+}
+
+table {
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+a {
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+hr {
+    background: #474d54;
+    /* variable */
+}
+
+h1 {
+    margin-top: 2em;
+}
+
+a {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.md-inline-math script {
+    color: #81b1db;
+}
+
+b,
+th,
+dt,
+strong {
+    color: #DEDEDE;
+    /* variable */
+}
+
+mark {
+    background: #D3D40E;
+}
+
+blockquote {
+    color: #9DA2A6;
+}
+
+table a {
+    color: #DEDEDE;
+    /* variable */
+}
+
+th,
+td {
+    border: solid 1px #474d54;
+    /* variable */
+}
+
+.task-list {
+    padding-left: 0;
+}
+
+.md-task-list-item {
+    padding-left: 1.25rem;
+}
+
+.md-task-list-item > input {
+    top: auto;
+}
+
+.md-task-list-item > input:before {
+    content: "";
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #b8bfc6;
+    background-color: #363B40;
+    margin-top: -0.4rem;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before {
+    content: '\221A';
+    /*◘*/
+    font-size: 0.625rem;
+    line-height: 0.625rem;
+    color: #DEDEDE;
+}
+
+/** quick open **/
+.auto-suggest-container {
+    border: 0px;
+    background-color: #525C65;
+}
+
+#typora-quick-open {
+    background-color: #525C65;
+}
+
+#typora-quick-open input{
+    background-color: #525C65;
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+.typora-quick-open-item {
+    background-color: inherit;
+    color: inherit;
+}
+
+.typora-quick-open-item.active,
+.typora-quick-open-item:hover {
+    background-color: #4D8BDB;
+    color: white;
+}
+
+.typora-quick-open-item:hover {
+    background-color: rgba(77, 139, 219, 0.8);
+}
+
+.typora-search-spinner > div {
+  background-color: #fff;
+}
+
+#write pre.md-meta-block {
+    border-bottom: 1px dashed #ccc;
+    background: transparent;
+    padding-bottom: 0.6em;
+    line-height: 1.6em;
+}
+
+.btn,
+.btn .btn-default {
+    background: transparent;
+    color: #b8bfc6;
+}
+
+.ty-table-edit {
+    border-top: 1px solid gray;
+    background-color: #363B40;
+}
+
+.popover-title {
+    background: transparent;
+}
+
+.md-image>.md-meta {
+    color: #BBBBBB;
+    background: transparent;
+}
+
+.md-expand.md-image>.md-meta {
+    color: #DDD;
+}
+
+#write>h3:before,
+#write>h4:before,
+#write>h5:before,
+#write>h6:before {
+    border: none;
+    border-radius: 0px;
+    color: #888;
+    text-decoration: underline;
+    left: -1.4rem;
+    top: 0.2rem;
+}
+
+#write>h3.md-focus:before {
+    top: 2px;
+}
+
+#write>h4.md-focus:before {
+    top: 2px;
+}
+
+.md-toc-item {
+    color: #A8C2DC;
+}
+
+#write div.md-toc-tooltip {
+    background-color: #363B40;
+}
+
+.dropdown-menu .btn:hover,
+.dropdown-menu .btn:focus,
+.md-toc .btn:hover,
+.md-toc .btn:focus {
+    color: white;
+    background: black;
+}
+
+#toc-dropmenu {
+    background: rgba(50, 54, 59, 0.93);
+    border: 1px solid rgba(253, 253, 253, 0.15);
+}
+
+#toc-dropmenu .divider {
+    background-color: #9b9b9b;
+}
+
+.outline-expander:before {
+    top: 2px;
+}
+
+#typora-sidebar {
+    box-shadow: none;
+    border-right: 1px dashed;
+    border-right: none;
+}
+
+.sidebar-tabs {
+    border-bottom:0;
+}
+
+#typora-sidebar:hover .outline-title-wrapper {
+    border-left: 1px dashed;
+}
+
+.outline-title-wrapper .btn {
+    color: inherit;
+}
+
+.outline-item:hover {
+    border-color: #363B40;
+    background-color: #363B40;
+    color: white;
+}
+
+h1.md-focus .md-attr,
+h2.md-focus .md-attr,
+h3.md-focus .md-attr,
+h4.md-focus .md-attr,
+h5.md-focus .md-attr,
+h6.md-focus .md-attr,
+.md-header-span .md-attr {
+    color: #8C8E92;
+    display: inline;
+}
+
+.md-comment {
+    color: #5a95e3;
+    opacity: 1;
+}
+
+.md-inline-math svg {
+    color: #b8bfc6;
+}
+
+#math-inline-preview .md-arrow:after {
+    background: black;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    border: 0;
+}
+
+.modal-title {
+    font-size: 1.5em;
+}
+
+.modal-content input {
+    background-color: rgba(26, 21, 21, 0.51);
+    color: white;
+}
+
+.modal-content .input-group-addon {
+    color: white;
+}
+
+.modal-backdrop {
+    background-color: rgba(174, 174, 174, 0.7);
+}
+
+.modal-content .btn-primary {
+    border-color: var(--primary-color);
+}
+
+.md-table-resize-popover {
+    background-color: #333;
+}
+
+.form-inline .input-group .input-group-addon {
+    color: white;
+}
+
+#md-searchpanel {
+    border-bottom: 1px dashed grey;
+}
+
+/** UI for electron */
+
+.context-menu,
+#spell-check-panel,
+#footer-word-count-info {
+    background-color: #42464A;
+}
+
+.context-menu.dropdown-menu .divider,
+.dropdown-menu .divider {
+    background-color: #777777;
+}
+
+footer {
+    color: inherit;
+}
+
+@media (max-width: 1000px) {
+    footer {
+        border-top: none;
+    }
+    footer:hover {
+        color: inherit;
+    }
+}
+
+#file-info-file-path .file-info-field-value:hover {
+    background-color: #555;
+    color: #dedede;
+}
+
+.megamenu-content,
+.megamenu-opened header {
+    background: var(--bg-color);
+}
+
+.megamenu-menu-panel h2,
+.megamenu-menu-panel h1,
+.long-btn {
+    color: inherit;
+}
+
+.megamenu-menu-panel input[type='text'] {
+    background: inherit;
+    border: 0;
+    border-bottom: 1px solid;
+}
+
+#recent-file-panel-action-btn {
+    background: inherit;
+    border: 1px grey solid;
+}
+
+.megamenu-menu-panel .dropdown-menu > li > a {
+    color: inherit;
+    background-color: #2F353A;
+    text-decoration: none;
+}
+
+.megamenu-menu-panel table td:nth-child(1) {
+    color: inherit;
+    font-weight: bold;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(1) {
+    color: white;
+}
+
+.modal-footer .btn-default, 
+.modal-footer .btn-primary,
+.modal-footer .btn-default:not(:hover) {
+    border: 1px solid;
+    border-color: transparent;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    color: white;
+    border: 1px solid #ddd;
+    background-color: inherit;
+}
+
+.modal-header {
+    border-bottom: 0;
+}
+
+.modal-footer {
+    border-top: 0;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+    border: 1px solid #eee;
+    background: transparent;
+}
+
+.mouse-hover .toolbar-icon.btn:hover,
+#w-full.mouse-hover,
+#w-pin.mouse-hover {
+    background-color: inherit;
+}
+
+.typora-node::-webkit-scrollbar {
+    width: 5px;
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical {
+    background: rgba(250, 250, 250, 0.3);
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical:active {
+    background: rgba(250, 250, 250, 0.5);
+}
+
+#w-unpin {
+    background-color: #4182c4;
+}
+
+#top-titlebar, #top-titlebar * {
+    color: var(--item-hover-text-color);
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+#footer-word-count:hover,
+.ty-show-word-count #footer-word-count {
+    background: #333333;
+}
+
+#toggle-sourceview-btn:hover {
+    color: #eee;
+    background: #333333;
+}
+
+/** focus mode */
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus) img,
+.on-focus-mode .md-task-list-item:not(.md-focus-container)>input {
+    opacity: #686868 !important;
+}
+
+.on-focus-mode li[cid]:not(.md-focus-container){
+    color: #686868;
+}
+
+.on-focus-mode .md-fences.md-focus .CodeMirror-code>*:not(.CodeMirror-activeline) *,
+.on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-focus,
+.on-focus-mode .md-focus-container {
+    color: #fff;
+}
+
+.on-focus-mode #typora-source .CodeMirror-code>*:not(.CodeMirror-activeline) * {
+    color: #686868 !important;
+}
+
+
+/*diagrams*/
+#write .md-focus .md-diagram-panel {
+    border: 1px solid #ddd;
+    margin-left: -1px;
+    width: calc(100% + 2px);
+}
+
+/*diagrams*/
+#write .md-focus.md-fences-with-lineno .md-diagram-panel {
+    margin-left: auto;
+}
+
+.md-diagram-panel-error {
+    color: #f1908e;
+}
+
+.active-tab-files #info-panel-tab-file,
+.active-tab-files #info-panel-tab-file:hover,
+.active-tab-outline #info-panel-tab-outline,
+.active-tab-outline #info-panel-tab-outline:hover {
+    color: #eee;
+}
+
+.sidebar-footer-item:hover,
+.footer-item:hover {
+    background: inherit;
+    color: white;
+}
+
+.ty-side-sort-btn.active,
+.ty-side-sort-btn:hover,
+.selected-folder-menu-item a:after {
+    color: white;
+}
+
+#sidebar-files-menu {
+    border:solid 1px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.79);
+    background-color: var(--bg-color);
+}
+
+.file-list-item {
+    border-bottom:none;
+}
+
+.file-list-item-summary {
+    opacity: 1;
+}
+
+.file-list-item.active:first-child {
+    border-top: none;
+}
+
+.file-node-background {
+    height: 32px;
+}
+
+.file-library-node.active>.file-node-content,
+.file-list-item.active {
+    color: white;
+    color: var(--active-file-text-color);
+}
+
+.file-library-node.active>.file-node-background{
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+.file-list-item.active {
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+
+#ty-tooltip {
+    background-color: black;
+    color: #eee;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: 0.3rem;
+    -webkit-appearance: none;
+}
+
+.md-mathjax-midline {
+    background-color: #57616b;
+    border-bottom: none;
+}
+
+footer.ty-footer {
+    border-color: #656565;
+}
+
+.ty-preferences .btn-default {
+    background: transparent;
+}
+.ty-preferences .btn-default:hover {
+    background: #57616b;
+}
+
+.ty-preferences select {
+    border: 1px solid #989698;
+    height: 21px;
+}
+
+.ty-preferences .nav-group-item.active {
+    background: var(--item-hover-bg-color);
+}
+
+.ty-preferences input[type="search"] {
+    border-color: #333;
+    background: #333;
+    line-height: 22px;
+    border-radius: 6px;
+    color: white;
+}
+
+.ty-preferences input[type="search"]:focus {
+    box-shadow: none;
+}
+
+[data-is-directory="true"] .file-node-content {
+    margin-bottom: 0;
+}
+
+.file-node-title {
+    line-height: 22px;
+}
+
+.html-for-mac .file-node-open-state, .html-for-mac .file-node-icon {
+    line-height: 26px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(230, 230, 230, 0.50);
+}
+
+#typora-sidebar:hover div.sidebar-content-content::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+.nav-group-item:active {
+    background-color: #474d54;
+}
+
+.md-search-hit {
+    background: rgba(199, 140, 60, 0.81);
+    color: #eee;
+}
+
+.md-search-hit * {
+    color: #eee;
+}
+
+#md-searchpanel input {
+    color: white;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h1><a name="4--基本数据类型" class="md-header-anchor"></a><span>4  基本数据类型</span></h1><p><span>在C语言中，数据类型指的是用于声明不同类型的变量或函数的一个广泛的系统。变量的类型决定了变量存储占用的空间，以及如何解释存储的位模式。</span></p><p><span>C语言中主要的数据类型大致分为以下几种：</span></p><ul><li><p><span>基本数据类型 </span></p><ul><li><span>整型类型</span><span>	</span><span>(int 、short 、long)</span></li><li><span>浮点数类型    (float 、double)</span></li><li><span>字符类型    (char)</span></li></ul></li><li><p><span>构造数据类型（有时一些构造类型也说复合型数据类型）</span></p><ul><li><span>数组</span></li><li><span>结构体、联合体    (struct 、union)</span></li><li><span>枚举类型    (enum)</span></li></ul></li><li><p><span>指针类型    (char* 、int* 、int**)</span></p></li><li><p><span>void 类型（空类型）</span></p></li></ul><p><span>（一些材料也会将指针、数组、结构体等类型称为派生类型，而将枚举类型但分为一类，也有些会将枚举类型归结为基本数据类型）</span></p><h2><a name="40--变量与常量" class="md-header-anchor"></a><span>4.0  变量与常量</span></h2><p><span>在C语言中，所有的数据、表达式都有其数据类型，数据类型的实质是规定了对应类型数据在内存中的存储方式和编码方式。数据又分为常量与变量两种：</span></p><ul><li><span>常量，又叫字面量(literals)，它通过在源程序中不同的书写格式来区分数据类型，常量的类型与值都不能在程序运行中被改变。</span></li><li><span>变量，通过在定义时指定从而区分它的数据类型，变量的数据类型也不能在程序运行中改变，但它的值可以被改变。</span></li></ul><center>表 4 - 1 常量与变量的对比</center><figure><table><thead><tr><th style='text-align:center;' ><span>项目</span></th><th style='text-align:center;' ><span>常量</span></th><th style='text-align:center;' ><span>变量</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>类型</span></td><td style='text-align:center;' ><span>通过不同的书写格式来确定</span></td><td style='text-align:center;' ><span>声明时确定</span></td></tr><tr><td style='text-align:center;' ><span>存储</span></td><td style='text-align:center;' ><span>除了字符串常量，其他类型常量不会在内存中存储</span></td><td style='text-align:center;' ><span>会在内存中存储</span></td></tr><tr><td style='text-align:center;' ><span>值</span></td><td style='text-align:center;' ><span>不可改变</span></td><td style='text-align:center;' ><span>可以改变</span></td></tr><tr><td style='text-align:center;' ><span>重复使用</span></td><td style='text-align:center;' ><span>不可重复使用</span></td><td style='text-align:center;' ><span>通过变量名，可以重复使用</span></td></tr></tbody></table></figure><p><span>程序中通过变量的名字来区分不同的变量，变量名的命名要符合“标识符”的命名规则。“标识符”是C语言中的一个概念，指用来区分程序员自己定义的各种语法单元，比如变量名、函数名、构造数据类型名、宏名等。“标识符”的命名规则如下：</span></p><ul><li><span>只能使用英文字母、数字和下划线进行组合，且不能以数字开头。</span></li><li><span>不能使用关键字。</span></li><li><span>C99标准前，标识符的前31个字符能区分标识符；在C99标准之后，放宽到63个字符。</span></li></ul><p><span>需要注意，C语言对字母大小写敏感。</span></p><center>表 4 - 2 C语言关键字表</center><figure><table><thead><tr><th style='text-align:center;' ><span>auto声明自动变量</span></th><th style='text-align:center;' ><span>else</span></th><th style='text-align:center;' ><span>long</span></th><th style='text-align:center;' ><span>swich</span></th><th style='text-align:center;' ><span>_Atomic**</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>break</span></td><td style='text-align:center;' ><span>enum</span></td><td style='text-align:center;' ><span>register</span></td><td style='text-align:center;' ><span>typedef</span></td><td style='text-align:center;' ><span>_Bool*</span></td></tr><tr><td style='text-align:center;' ><span>case</span></td><td style='text-align:center;' ><span>extern</span></td><td style='text-align:center;' ><span>restrict*</span></td><td style='text-align:center;' ><span>union</span></td><td style='text-align:center;' ><span>_Complex*</span></td></tr><tr><td style='text-align:center;' ><span>char</span></td><td style='text-align:center;' ><span>float</span></td><td style='text-align:center;' ><span>return</span></td><td style='text-align:center;' ><span>unsigned</span></td><td style='text-align:center;' ><span>_Generic**</span></td></tr><tr><td style='text-align:center;' ><span>const</span></td><td style='text-align:center;' ><span>for</span></td><td style='text-align:center;' ><span>short</span></td><td style='text-align:center;' ><span>void</span></td><td style='text-align:center;' ><span>_Imaginary*</span></td></tr><tr><td style='text-align:center;' ><span>continue</span></td><td style='text-align:center;' ><span>goto</span></td><td style='text-align:center;' ><span>signed</span></td><td style='text-align:center;' ><span>volatile</span></td><td style='text-align:center;' ><span>_Noreturn**</span></td></tr><tr><td style='text-align:center;' ><span>default</span></td><td style='text-align:center;' ><span>if</span></td><td style='text-align:center;' ><span>sizeof</span></td><td style='text-align:center;' ><span>while</span></td><td style='text-align:center;' ><span>_Static_assert**</span></td></tr><tr><td style='text-align:center;' ><span>do</span></td><td style='text-align:center;' ><span>inline*</span></td><td style='text-align:center;' ><span>static</span></td><td style='text-align:center;' ><span>_Alignas**</span></td><td style='text-align:center;' ><span>_Thread_local**</span></td></tr><tr><td style='text-align:center;' ><span>double</span></td><td style='text-align:center;' ><span>int</span></td><td style='text-align:center;' ><span>struct</span></td><td style='text-align:center;' ><span>_Alignof**</span></td><td style='text-align:center;' >&nbsp;</td></tr></tbody></table></figure><center>* 表示从C99标准以后，** 表示自从C11标准以后</center><p><span>C语言是强类型语言，就是所有的变量在使用前都必须声明其类型。所有的变量声明都是使用“类型名 声明符 初始化列表”的形式，比如：</span></p><pre name="code" class="C">	int a, *b = NULL;</pre><p><span>其中，“ int ”是类型名，“ a ”是声明符，“ *b ”是声明符， NULL 是 b 的初始化。它声明了一个 int 型变量 a ，一个 int 型指针变量 b ，并将 b 初始化成宏值 NULL 。</span></p><pre>	const int * foo(void);</pre><p><span>其中，“ int ”是类型名， const 是类型修饰符， “ * foo(void) ”是声明符。它声明一个类型为 const int 指针类型的无参数函数 foo 。</span></p><pre>	enum COLOR {RED, GREEN, BLUE} c;</pre><p><span>其中，“ enum COLOR {RED, GREEN, BLUE} ”是类型名，“ c ”是声明符。它声明一个枚举 COLOR 类型变量 c 。</span></p><h2><a name="41-整数" class="md-header-anchor"></a><span>4.1 整数</span></h2><h3><a name="410-int-型变量" class="md-header-anchor"></a><span>4.1.0 int 型变量</span></h3><p><span>整数是最常见的数据类型，其基本型为 int ，它表示一个有符号的整数。 int 型常量用十进制、八进制和十六进制表示。由于八进制和十六进制可以很方便地和二进制进行转换，主要用于二进制表达的场景，比如位运算等。</span></p><ul><li><span>十进制时，首字符为1~9，后由若干个字符0~9组成。</span></li><li><span>八进制时，使用0作为首字符，后由若干个字符0~7组成。</span></li><li><span>十六进制时，使用 0x 或 0X 作为前缀字符，后由若干个字符0~9、a~f或A~F组成。</span></li></ul><h3><a name="411-int型变量的存储和编码" class="md-header-anchor"></a><span>4.1.1 int型变量的存储和编码</span></h3><p><span>计算机中使用的二进制表达一个整数， int 型变量在32位编译器上，使用4个字节存储一个 int 型整数，其存储和编码格式如图4-1所示。它使用第31位作为符号位，0表示非负，1表示负数。从0到31位为数据位，其编码方式使用补码。</span></p><p><img src="images/4-1.jpg" alt="图 4-1 " style="zoom: 50%;" /></p><p><span>补码的计算规则为，</span><strong><span>如果整数为非负，补码与原码相同</span></strong><span>，即原始的二进制表达；</span><strong><span>如果整数为负，其补码等于反码（原码的数据位按位取反），再加1</span></strong><span> 。-1 的补码计算规则如图4-2所示</span></p><p><img src="images/4-2.jpg" alt="图 4-2 " stylie="zoom:50%;" /></p><p><span>使用补码来表达整数，或者说整数在内存中使用补码进行编码，其目的是简化计算电路的设计，比如计算“1+(-1)”，计算机在使用简单的二进制加法电路的情况下，原码会出现错误结果，相比较之下，使用原码的话就需要添加更加复杂的修正电路来确保正确性，而使用补码，则可以直接使用二进制加法电路进行加法运算。</span></p><p><span>根据整数的编码方式，可以得到 int 型整数的表示范围为 -2^31 ~ 2^31 。</span></p><h3><a name="412-int-型变量的定义和初始化" class="md-header-anchor"></a><span>4.1.2 int 型变量的定义和初始化</span></h3><p><span>int 型变量在声明时，32位编译器会使用一个4字节的空间，用于存储这个 int 型变量。程序中可以使用这个变量名来访问这个空间，并按 int 型的编码规则对这4个字节的内容进行解析。int型变量的声明与初始化如下：</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">int</span> <span class="cm-variable">a</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">// 声明一个 int 型变量，变量名为 a </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">int</span> <span class="cm-variable">a</span>, <span class="cm-variable">b</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">// 声明两个 int 型变量，变量名分别为 a 和 b </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">int</span> <span class="cm-variable">a</span>, <span class="cm-variable">b</span><span class="cm-operator">=</span><span class="cm-number">1</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">// 声明两个 int 型变量 a 和 b ，并把 b 的值初始化为1</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">int</span> <span class="cm-variable">a</span><span class="cm-operator">=</span><span class="cm-number">1</span>, <span class="cm-variable">b</span><span class="cm-operator">=</span><span class="cm-variable">a</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">// 声明两个 int 型变量 a 和 b ，并把 a 的值初始化为1，把 b 初始化和 a 一样</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 211px;"></div><div class="CodeMirror-gutters" style="height: 211px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><p><span>注意，变量如果不被初始化，那么它的值不确定。如果使这个变量去初始化其他变量，其他变量的值同样不确定。可以使用前面声明的变量的值初始化另一个变量，但反之不然。</span></p><h3><a name="413-int类型的修饰符" class="md-header-anchor"></a><span>4.1.3 int类型的修饰符</span></h3><p><span>int 类型可以通过类型修饰符得到其他的整数类型，类型修饰符主要有两种：</span></p><ul><li><span>符号：signed、unsigned</span></li><li><span>长度：short、long、long long</span></li></ul><p><span>两种修饰符可以组合使用，并且在使用过程中可以省略 int 类型符。比如 unsigned int &lt;=&gt; unsigned。由于默认都是 signed 的，所以在使用中很少写 signed。C标准规定各类型所占位数：short &lt;= int &lt;= long &lt;= long long。</span></p><p><span>各类型所占位数与编译器和基于的操作系统相关，目前常用的32位编译器都基于 ILP32 ，即4/4/4 ( int, long和指针都是32位)的。各类型整数在C标准和 ILP32 系统中所占位数如表 4 - 3所示：</span></p><center>表 4 - 3 整数类型在各系统中所占位数</center><figure><table><thead><tr><th style='text-align:center;' ><span>整数类型</span></th><th><span>C标准</span></th><th><span>ILP32</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>short int、unsigned short int</span></td><td><span>至少16</span></td><td><span>16</span></td></tr><tr><td style='text-align:center;' ><span>int、unsigned int</span></td><td><span>至少16</span></td><td><span>32</span></td></tr><tr><td style='text-align:center;' ><span>long int、unsigned long int</span></td><td><span>至少32</span></td><td><span>32</span></td></tr><tr><td style='text-align:center;' ><span>long long int (C99)、unsigned long long int</span></td><td><span>至少64</span></td><td><span>64</span></td></tr></tbody></table></figure><p><span>  在 ILP32 系统中，由于 long 和 int 所占位数相同，所以很少用 long ；short也只用在一些特殊场合（比如内存有限），一般常用的类型有 unsigned int 、 long long 、unsigned long long 。其类型的数据范围如下：</span></p><center>表 4 - 4 各类型在 ILP32 系统中的数据范围</center><figure><table><thead><tr><th style='text-align:left;' ><span>类型</span></th><th><span>数据范围</span></th></tr></thead><tbody><tr><td style='text-align:left;' ><span>unsigned int</span></td><td><span>0 ~ 2^32-1</span></td></tr><tr><td style='text-align:left;' ><span>long long</span></td><td><span>-2^63 ~ 2^63-1</span></td></tr><tr><td style='text-align:left;' ><span>unsigned long long</span></td><td><span>0 ~ 2^64-1</span></td></tr></tbody></table></figure><p><span>为了和 int 型进行区分，其他类型的整数常量采用加后缀的方式，同时他们也都可以用十进制、八进制和十六进制来表示，long long 的两种类型的后缀建议使用大写，以方便区分字符“1”与“l”。</span></p><center>表 4 - 5 各整数类型的常量后缀及表达</center><figure><table><thead><tr><th><span>类型</span></th><th><span>后缀</span></th><th><span>十进制</span></th><th><span>八进制</span></th><th><span>十六进制</span></th></tr></thead><tbody><tr><td><span>unsigned int</span></td><td><span>u 或 U</span></td><td><span>1u</span></td><td><span>052u</span></td><td><span>0x3fu</span></td></tr><tr><td><span>long long</span></td><td><span>ll 或 LL</span></td><td><span>1LL</span></td><td><span>052LL</span></td><td><span>0x3fLL</span></td></tr><tr><td><span>unsigned long long</span></td><td><span>llu 或 LLU</span></td><td><span>1LLU</span></td><td><span>052LLU</span></td><td><span>0x3fLLU</span></td></tr></tbody></table></figure><p><span>与 int 类型类似，这3种类型也使用 scanf 和 printf 函数来进行输入和输出，其格式描述符（详细说明在后面 4.5 ）如下表：</span></p><center>表 4 - 6 个整数类型格式描述符</center><figure><table><thead><tr><th><span>类型</span></th><th><span>十进制</span></th><th><span>八进制</span></th><th><span>十六进制</span></th></tr></thead><tbody><tr><td><span>unsigned int</span></td><td><span>%u</span></td><td><span>%o</span></td><td><span>%x 或 %X</span></td></tr><tr><td><span>long long</span></td><td><span>%lld</span></td><td><span>%llo</span></td><td><span>%llx 或 %LLX</span></td></tr><tr><td><span>unsigned long long</span></td><td><span>%llu</span></td><td><span>%llo</span></td><td><span>%llx 或 %LLX</span></td></tr></tbody></table></figure><p><span>一些比较老的编译器，不支持 long long ，它们内部定义了类似 __int64 类型来表示64位有符号整数，其格式描述符为  “%I64d” 。另外，如果在一些老的操作系统上使用 MinGW 编译器，由于 MinGW 直接使用 Windows 的运行库，在使用 long long 类型时，使用 “%lld” 格式描述符会出错，也需要使用 “%I64d” 的格式描述符。</span></p><h2><a name="42-浮点数" class="md-header-anchor"></a><span>4.2 浮点数</span></h2><p><span>浮点数，也叫实数，相对于整数就是多了小数点。C语言中有三种数据类型用来表达浮点数，即 float、double、long float，中文成称为单精度浮点、双精度浮点和扩展精度浮点，其中 double 类型较为常用。</span></p><h3><a name="420-浮点数常量" class="md-header-anchor"></a><span>4.2.0 浮点数常量</span></h3><p><span>浮点数类型的常量都有两种形式，小数形式和科学计数法形式。double 常量的小数形式为“整数 . 小数”，比如 1.23 。如果整数或者小数部分为0，可以省略，比如 1. 和 .23 分别表示 1.0 和 0.23 。double 常量的科学计数法形式为“ </span><strong><span>有效数字e指数</span></strong><span> ”或者“ </span><strong><span>有效数字E指数</span></strong><span> ”，表示</span><strong><span>有效数字 * 10^(指数)</span></strong><span> ，比如 1e-6 或者 1.23e3 。（C99标准还提供一种 p 格式的科学计数法，支持16进制浮点数）</span></p><p><span> float 和 long double 类型的常量和 double 类型的表达相似，只是通过在常量后面加后缀的方式进行区分， float 类型的后缀为“ f ”， long double 的后缀为“ L ”。比如 1.23f 和 1e-6f 都表示两个 float 常量；而 1.23L 和 1e-6L 表示两个 long double 常量。</span></p><h3><a name="421-浮点数变量" class="md-header-anchor"></a><span>4.2.1 浮点数变量</span></h3><p><span>浮点数变量的定义和初始化与 int 型相似，只是将类型名换成了浮点数对应的类型，比如 double 。</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">double</span> <span class="cm-variable">a</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">double</span> <span class="cm-variable">a</span>, <span class="cm-variable">b</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">double</span> <span class="cm-variable">a</span>, <span class="cm-variable">eps</span><span class="cm-operator">=</span><span class="cm-number">1e-6</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">// 声明两个 double 变量 a 和 eps ，并将 eps 初始化为 0.000001</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">double</span> <span class="cm-variable">a</span><span class="cm-operator">=</span><span class="cm-number">1.0</span>, <span class="cm-variable">b</span><span class="cm-operator">=</span><span class="cm-variable">a</span><span class="cm-operator">+</span><span class="cm-number">0.1</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">float</span> <span class="cm-variable">a</span><span class="cm-operator">=</span><span class="cm-number">1e8</span>, <span class="cm-variable">b</span><span class="cm-operator">=</span><span class="cm-variable">a</span><span class="cm-operator">-</span><span class="cm-number">1</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">// 浮点数变量在初始化和运算中要注意有效数字的概念，比如上面一句，因为 float 的有效数字只有 7 位， b 并不是 99999999.0 而依然是 100000000.0 。</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 236px;"></div><div class="CodeMirror-gutters" style="height: 236px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><h3><a name="422-浮点数的存储与编码" class="md-header-anchor"></a><span>4.2.2 浮点数的存储与编码</span></h3><p><span> double 变量使用 IEEE 754 标准的64位存储和编码方式，占8个字节的空间，其存储和编码格式如下图所示。</span></p><p><img src="images/4-3.jpg" alt="图 4-3 " style="zoom: 50%;" /></p><p><span>具体的编码规则比较复杂，详见 </span><a href='https://en.wikipedia.org/wiki/IEEE_754-1985' target='_blank' class='url'>https://en.wikipedia.org/wiki/IEEE_754-1985</a><span> 。 double 类型的数据范围是 ±2.23 * 10^(-308) ~ ±1.80 * 10(308)，大约15~16个有效数字。 double 不能表达数据范围内所有的数，即使是所有的整数也不能。对于浮点数精度，更有意义的是有效数字的感念，而不是数据范围。</span></p><p><span> float 使用 IEEE 754 标准的 32 位存储和编码方式，占4个字节的空间，其存储和编码格式与 double 类似，只是指数和分数所占的位数变少，分别占8位和23位。 float 类型的有效数字约为7，数据范围为±1.18 * 10^(-38) ~ ±3.4 * 10(38) 。由于 float 本身精度有限，所以只用于对计算速度要求更高的场景中，一般场景中使用 double 较为常见。</span></p><p><span> long double 使用 IEEE 754 标准的扩展浮点数类型，但标准只是规定精度和范围不能比 double 差，并未规定具体的长度。</span></p><h3><a name="423-浮点数的输入输出" class="md-header-anchor"></a><span>4.2.3 浮点数的输入输出</span></h3><p><span>浮点数的输入也是用 scanf 函数，其格式描述符如下表：</span></p><center>表 4 - 7 浮点数的 scanf 格式描述符</center><figure><table><thead><tr><th><span>类型</span></th><th><span>格式描述符 %</span></th></tr></thead><tbody><tr><td><span>float</span></td><td><span>f, F, e, E, g, G</span></td></tr><tr><td><span>double</span></td><td><span>lf, lF, le, lE, lg, lG</span></td></tr><tr><td><span>long double</span></td><td><span>Lf, LF, Le, LE, Lg, LG</span></td></tr></tbody></table></figure><p><span>无论采用哪种格式描述符，用户输入的时候，既可以采用小数形式，也可以采用科学计数法的形式，对于输入结果是一样的。需要注意的是， double 和 long double 的格式描述符前缀分别是 l 和 L ，两者不能通用，如果混淆使用就会得到错误的输入结果。</span></p><p><span>浮点数的输出也是用 printf 函数，其格式描述符和 scanf 的格式描述符相同，但是含义却不一样。要注意，GNU系列的编译器并不支持 double 的格式描述符前缀 l ，使用于 float 相同的格式描述符。</span></p><ul><li><span>f, F</span></li></ul><p><span>按小数形式输出，格式为默认输出小数点后 6 位。</span></p><ul><li><span>e, E</span></li></ul><p><span>按科学计数法输出，有效数字部分默认小数点后 6 位，指数部分标准为 2 位，超过两位显示 3 位，也有编译器直接用 3 位。</span></p><ul><li><span>g, G</span></li></ul><p><span>如果指数的值在 [ -4, +5 ]之间，输出小数形式，否则输出科学计数法形式。</span></p><p><span>浮点数还有一种常用的输出格式，是控制小数点后的位数，使用 %.nf 的形式来输出 float 或者 double 类型的值，比如 printf(“%.3f”, 1.2345) 中，将保留小数点后 3 位（将使用四舍五入的形式取舍）。但是，这个位数必须和有效数字的精度相匹配才有意义，如果超出有效数字的精度，超出部分的数码并不精确。</span></p><h2><a name="43-字符" class="md-header-anchor"></a><span>4.3 字符</span></h2><p><span>字符类型是C语言用来处理字符的数据类型，C标准中有三种， char 、 signed char 、 unsigned char 。注意， char 和 signed char 并不相同， char 是独立于其他两种的一种类型， char 是否有符号是和编译器相关的。大部分编译器会把 char 处理成 signed char ， unsigned char 只在访问内存中的原始二进制值时使用。后面大多情况只讨论 char 类型，并且默认是有符号的。</span></p><h3><a name="430-char的存储与-ascii-码" class="md-header-anchor"></a><span>4.3.0 char的存储与 ASCII 码</span></h3><p><span> 计算机只识二进制，所以在1967年提出了 ASCII 作为一个通用的信息交换标准编码。现代计算机大部分 字符编码系统都是基于 ASCII 做扩展，以支持其他的字符，比如中文系统中常用的 GBK ， UTF-8 等。</span></p><p><span> ASCII 使用 7 位二进制进行编码，码值从 0 到 127 ，它对英文字母、0 ~ 9数码、英文标点，控制字符等进行了编码。比如，字符“ A ”被编号为 65 。 char 类型占用一个字节，用字节的低 7 位存放一个字符的 ASCII 码值。</span></p><center>表 4 - 8 ASCII 码值对应表</center><h3><a name="431-char常量" class="md-header-anchor"></a><span>4.3.1 char常量</span></h3><p><span> char 常量使用单引号作为限定符，一对单引号中写入一个字符，表示这个字符的 char 常量，等价于这个字符的 ASCII 码值，比如 char 常量 ‘A’ 。注意，单引号之间可以写入多个字符，但其含义和编译器相关，所以尽量不要这样做。</span></p><p><span>由于 ASCII 码中很多控制字符（比如换行）不能书写到程序中，为了表示它们，引入了转义字符的概念。转义字符使用“ \ ”作为前缀。单引号只能在字符常量中需要转义，在字符串常量中无需转义（因为不是限定符，当然用转义也可以），同样，双引号也类似，只需要在字符串常量中使用转义。‘\0’ 表示串结束符，在字符串的处理中经常需要用到这个字符，注意它的 ASCII 值为 0 ，与 字符 ‘0’ 不同。</span></p><center>表 4 - 9 转义字符集</center><figure><table><thead><tr><th style='text-align:center;' ><span>转义字符</span></th><th style='text-align:center;' ><span>含义</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>&#39;</span></td><td style='text-align:center;' ><span>单引号</span></td></tr><tr><td style='text-align:center;' ><span>&quot;</span></td><td style='text-align:center;' ><span>双引号</span></td></tr><tr><td style='text-align:center;' ><span>\</span></td><td style='text-align:center;' ><span>反斜杠</span></td></tr><tr><td style='text-align:center;' ><span>\n</span></td><td style='text-align:center;' ><span>光标移到下一行</span></td></tr><tr><td style='text-align:center;' ><span>\r</span></td><td style='text-align:center;' ><span>光标移到本行开头</span></td></tr><tr><td style='text-align:center;' ><span>\t</span></td><td style='text-align:center;' ><span>光标移到本行下一个制表位</span></td></tr><tr><td style='text-align:center;' ><span>\nnn</span></td><td style='text-align:center;' ><span>nnn 为三位 8 进制值</span></td></tr><tr><td style='text-align:center;' ><span>\xnn</span></td><td style='text-align:center;' ><span>nn 为两位 16 进制值</span></td></tr></tbody></table></figure><h3><a name="432-char变量" class="md-header-anchor"></a><span>4.3.2 char变量</span></h3><p><span> char 类型变量的定义和初始化与 int 型类似，只是将类型换成 char 。特别的是，由于 char 存储的是 ASCII 码值，可以使用整数类型表达式对其初始化，其值为初始化整数表达式值的最低字节的补码。但为了代码的辨识性，一般不使用这种方法。</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>7</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">char</span> <span class="cm-variable">a</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">char</span> <span class="cm-variable">a</span>, <span class="cm-variable">b</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">char</span> <span class="cm-variable">a</span><span class="cm-operator">=</span><span class="cm-string">'A'</span>, <span class="cm-variable">b</span><span class="cm-operator">=</span><span class="cm-string">'b'</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">char</span> <span class="cm-variable">a</span><span class="cm-operator">=</span><span class="cm-number">65</span>, <span class="cm-variable">b</span><span class="cm-operator">=</span><span class="cm-variable">a</span><span class="cm-operator">+</span><span class="cm-string">'a'</span><span class="cm-operator">-</span><span class="cm-string">'A'</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">// a 的初始值为‘A’（ASCII码值为65），b的初始值为‘b’</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">char</span> <span class="cm-variable">a</span><span class="cm-operator">=</span><span class="cm-number">65</span>, <span class="cm-variable">b</span><span class="cm-operator">=</span><span class="cm-variable">a</span><span class="cm-operator">+</span><span class="cm-number">256</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">// b的初始值为‘A’</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 185px;"></div><div class="CodeMirror-gutters" style="height: 185px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><h3><a name="433-char类型的输入输出" class="md-header-anchor"></a><span>4.3.3 char类型的输入输出</span></h3><p><span> char 变量使用 scanf 和 printf 来进行输入输出，其格式描述符为 c ，另外还可以使用 getchar 和 putchar 函数进行输入输出。这两组函数可以混用，在使用时要注意，空白符也是字符。</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 39px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 35px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>16</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -35px; width: 35px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stdio.h&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">char</span> <span class="cm-variable">a</span>, <span class="cm-variable">b</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">scanf</span>(<span class="cm-string">"%c%c"</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">a</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">b</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%c %c\n"</span>, <span class="cm-variable">a</span>, <span class="cm-variable">b</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">a</span> <span class="cm-operator">=</span> <span class="cm-variable">getchar</span>();</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">b</span> <span class="cm-operator">=</span> <span class="cm-variable">getchar</span>();</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">putchar</span>(<span class="cm-variable">a</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">putchar</span>(<span class="cm-variable">b</span>); </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">/* </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">当用户输入“a b”时，用户输入的4个字符进入键盘缓冲区，scanf函数先从键盘缓冲区中读入两个字符a和空格，分别存入变量a和b中；printf函数输出“a \n”；然后getchar函数依次从键盘缓冲区读入“b”和“\n”，分别存入变量a和b中，putchar函数依次输出字符“b”和“\n”。</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">*/</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 435px;"></div><div class="CodeMirror-gutters" style="height: 435px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div></div></div></div></pre><p><span> char 在系统中也可以认为是一种整数类型，所以，可以使用 int 型的输出格式描述符输出 char 的 ASCII 码值。</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 39px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 35px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>10</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -35px; width: 35px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stdio.h&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">char</span> <span class="cm-variable">a</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">a</span> <span class="cm-operator">=</span> <span class="cm-variable">getchar</span>();</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"The ASCII of '%c' is %d\n"</span>, <span class="cm-variable">a</span>, <span class="cm-variable">a</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 上一行后半句中用 %d 格式描述符来打印 char 型变量，会直接输出字符的 ASCII 值。 </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 256px;"></div><div class="CodeMirror-gutters" style="height: 256px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div></div></div></div></pre><h3><a name="434-字符串常量" class="md-header-anchor"></a><span>4.3.4 字符串常量</span></h3><p><span>c语言中使用双引号作为字符串常量的限定符，一个字符串常量表现为一对双引号，之间有零到任意多个字符。C语言并没有专门的字符串类型，字符串常量的类型为一个 char 数组，数组长度为字符串常量的字符数。值得注意的是,所有字符串常量隐含了一个串结束符&quot;\0&#39;在串尾，所以字符串常量字符数是“写出来”的字符数加1，比如”hello&quot;的长度为6，因为最后隐含了串结束符。所以，字符常量&#39;A &#39;和字符串常量&quot;A&quot;是有本质不同的，不要混淆。字符串常量虽然是一个char数组，但是其内容是不可以修改的，不要试图去修改字符串常量的内容。</span></p><p><span>字符串常量不一定是一个字符串。比如，在字符串常量中包含串结束符，”hel\0lo&quot;，这个字符串常量中包含两个字符串,其长度为7。编程实践上不建议在字符串常量中嵌入‘\0’的串结束符，应该避免这种写法。</span></p><p><span>在字符串常量中需要包含使用8进制或者16进制的转义字符时，如果后面紧跟着一个表示8进制或者16进制的字符，可能会导致歧义或语法错误。为此，可以使用多个字符串连接在一起，表示这个字符串常量，比如字符串常量的第一个字符为16进制转义的‘\x20’，第二个字符为字符‘f’，不能写成“\xfff”，这时会导致编译器认为后面的fff都为16进制的值，从而导致超出16进制转义字符的范围；这时应该写成“\xff”“f”，编译器会自动连接这两个字符串常量，得到正确的结果。</span>
+<span>字符串常量还可以用于字符数组的初始化，详见后面数组中的讨论。字符串常量的输出可以使用printf或puts函数。printf 函数有两种形式，一种是直接输出字符串常量，另一种是使用%s格式描述符。</span><strong><span>puts 函数会自动在输出后换行</span></strong><span>。比如下面的程序，程序会输出3行，都为&quot;hello world&quot;。</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>8</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#incldue &lt;stdio.h&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"hello world\n"</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%s %s\n"</span>, <span class="cm-string">"hello"</span>, <span class="cm-string">"world"</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">puts</span>(<span class="cm-string">"hello world"</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 205px;"></div><div class="CodeMirror-gutters" style="height: 205px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><h2><a name="44-常量与宏值的创建" class="md-header-anchor"></a><span>4.4 常量与宏值的创建</span></h2><h3><a name="440-常量" class="md-header-anchor"></a><span>4.4.0 常量</span></h3><p><span>如果要让一个变量的值在程序中不被改变，可以使用 </span><strong><span>const</span></strong><span> 修饰符修饰这个变量（但当 const 修饰指针时，会有更复杂的含义），被 const 修饰的变量，除非作为函数参数，否则都需要被初始化。虽然被 const 修饰的变量的值在程序运行过程中不能被改变，但它依然是变量，不是常量（或者说字面量比较容易理解）。有时，一些编译器不支持可变长数组（VLA）特性，在使用这种变量时就可能会编译错误。</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 39px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 35px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>16</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -35px; width: 35px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stdio.h&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">const</span> <span class="cm-variable-3">int</span> <span class="cm-variable">n</span> <span class="cm-operator">=</span> <span class="cm-number">10</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 等价于 int const n = 10;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">i</span>, <span class="cm-variable">a</span>[<span class="cm-variable">n</span>];</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 会在此处编译出错，因为对数组声明时，长度表达式必须是常量表达式</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span>(<span class="cm-variable">i</span><span class="cm-operator">=</span><span class="cm-number">0</span>;<span class="cm-variable">i</span><span class="cm-operator">&lt;</span><span class="cm-variable">n</span>;<span class="cm-variable">i</span><span class="cm-operator">++</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">a</span>[<span class="cm-variable">i</span>] <span class="cm-operator">=</span> <span class="cm-variable">i</span> <span class="cm-operator">*</span> <span class="cm-variable">i</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span>(<span class="cm-variable">i</span><span class="cm-operator">=</span><span class="cm-number">0</span>;<span class="cm-variable">i</span><span class="cm-operator">&lt;</span><span class="cm-variable">n</span>;<span class="cm-variable">i</span><span class="cm-operator">++</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d:%d\n"</span>, <span class="cm-variable">i</span>, <span class="cm-variable">a</span>[<span class="cm-variable">i</span>]);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 410px;"></div><div class="CodeMirror-gutters" style="height: 410px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div></div></div></div></pre><h3><a name="441-宏" class="md-header-anchor"></a><span>4.4.1 宏</span></h3><p><span>为了提高程序的可读性和可维护性，特别当要多次使用同一个常量的时候，常使用宏定义命令 </span><strong><span>#define</span></strong><span> 来“定义”常量。宏定义是C语言中很常用的一种预处理指令，所谓“宏”，就是使用一个标识符来代替一个字符串，这个标识符被称为“宏名”。预处理时，编译器会将所有的宏名进行文本替换，即所谓“宏展开”。</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 39px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 35px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>38</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -35px; width: 35px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stdio.h&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#define N 10<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span></span><span class="cm-comment">// 正常定义宏常量</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#define M N*2<span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-tab" role="presentation" cm-text="	">    </span></span><span class="cm-comment">// 可以用上面出现过的宏来定义宏</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// #define W 10+1</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#define W (10+1)<span class="cm-tab" role="presentation" cm-text="	">    </span></span><span class="cm-comment">// 宏展开只是简单的文字替换，所以定义时可能造成意料之外的错误</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span> &nbsp; <span class="cm-comment">// 上面两种方式在下面使用的时候会被展开为：</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span> &nbsp; <span class="cm-comment">// <span class="cm-tab" role="presentation" cm-text="	">  </span>b = 10+1 * 2 = 12 (错误)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span> &nbsp; <span class="cm-comment">// <span class="cm-tab" role="presentation" cm-text="	">  </span>b = (10+1) * 2 = 22 (正确)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#define SQ(x) ((x)*(x))</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span> &nbsp; <span class="cm-comment">// 宏定义也可以带参数，被称为“宏函数”，但这里的参数没有类型，所以要注意类型，否则会没有意义</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#define PRINT(str, n) for(int i=0;i&lt;n;i++) {\</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-meta">printf(""%c",str);\</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-meta">}</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span> &nbsp; <span class="cm-comment">// 宏定义后面是一个字符串，这就导致不能断行，使用“\”可以来实现多行定义</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">19</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">20</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">21</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">22</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">a</span>, <span class="cm-variable">Na</span>, <span class="cm-variable">b</span>, <span class="cm-variable">c</span>, <span class="cm-variable">d</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">23</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">a</span> <span class="cm-operator">=</span> <span class="cm-variable">N</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">24</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d\n"</span>, <span class="cm-variable">a</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">25</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 正常使用宏定义常量</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">26</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">27</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d"</span>, <span class="cm-variable">aN</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">28</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 如果宏名包含在字符串或字符常量中时，将无法正常使用，如果这句不删除，该段程序在编译时就会编译出错</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">29</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">30</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">b</span> <span class="cm-operator">=</span> <span class="cm-variable">W</span> <span class="cm-operator">*</span> <span class="cm-number">2</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">31</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d"</span>, <span class="cm-variable">b</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">32</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">33</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">c</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">34</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">d</span> <span class="cm-operator">=</span> <span class="cm-variable">SQ</span>(<span class="cm-variable">c</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">35</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 宏展开为：d = SQ((c + 1)*(c + 1));</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">36</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">37</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">38</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 981px;"></div><div class="CodeMirror-gutters" style="height: 981px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div></div></div></div></pre><p><span>所以的宏不能重复定义，如果要重新定义宏，就要取消原来的宏定义，可以使用 </span><strong><span>#undef</span></strong><span> 命令。</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 39px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 35px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>12</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -35px; width: 35px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stdio.h&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#define N 10</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">a</span> <span class="cm-operator">=</span> <span class="cm-variable">N</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#undef N</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#define N 2</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">b</span> <span class="cm-operator">=</span> <span class="cm-variable">N</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d %d\n"</span>, <span class="cm-variable">a</span>, <span class="cm-variable">b</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 程序运行的结果是打印两个整型变量：10 2</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 307px;"></div><div class="CodeMirror-gutters" style="height: 307px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div></div></div></div></pre><h2><a name="45-标准输入与输出" class="md-header-anchor"></a><span>4.5 标准输入与输出</span></h2><p><span>这里只讨论 scanf 函数与 printf 函数。</span></p><h3><a name="450-scanf函数" class="md-header-anchor"></a><span>4.5.0 scanf函数</span></h3><p><span> scanf 函数为标准输入函数，即从键盘（ stdin 文件）读入一个字符串，根据程序中指定的格式，对字符串进行解析，并将结果值存入对应的内存单元。其函数原型为：</span></p><pre>	int scanf(const char *format, ...);</pre><p><span>其中 format 为格式描述字符串，根据格式描述字符串中格式描述符来确定参数个数。格式描述字符串包含3中字符：</span></p><ul><li><span>空白符，包括空格，换行和制表符。它表示忽略空白符，直到下一个非空白符。</span></li><li><span>除格式描述符（ % ）之外的非空白字符，它会让 scanf 函数去读取输入流中的下一个字符，并与这个非空白字符匹配，如果不匹配，就会使得函数失败返回。</span></li><li><span>格式描述符，一个以 % 为前导的字符串，表示按特定的格式解析输入流里的字符。（每个格式描述符的格式为：%</span>[<span> * </span>][ 宽度 ]<span>[ 长度修饰符 ]格式区分符，其中，[]表示可选。）</span></li></ul><center>表 4 - 10 scanf函数格式区分符</center><figure><table><thead><tr><th style='text-align:center;' ><span>格式区分符</span></th><th style='text-align:center;' ><span>描述</span></th><th style='text-align:center;' ><span>字符提取</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>i</span></td><td style='text-align:center;' ><span>整数</span></td><td style='text-align:center;' ><span>任意多个数码，可以有前导符号(+或一)。默认为10进制的数码0-9;如果是前导0，后接0- 7，则认为是8进制;如果前导是0x,后接0-f,则认为是16进制</span></td></tr><tr><td style='text-align:center;' ><span>d u</span></td><td style='text-align:center;' ><span>10进制数</span></td><td style='text-align:center;' ><span>任意多个数码，从0一9，可以有前导符号(+或一)。d将被解析成有符号整数,u将被解析成无符号整数</span></td></tr><tr><td style='text-align:center;' ><span>o</span></td><td style='text-align:center;' ><span>8进制数</span></td><td style='text-align:center;' ><span>任意多个数码，从0- 7，可以有前导符号(+或一),被解析成无符号整数</span></td></tr><tr><td style='text-align:center;' ><span>x</span></td><td style='text-align:center;' ><span>16进制数</span></td><td style='text-align:center;' ><span>任意多个数码(0-9,A-F,a- f),可以有前缀0x或0X,最前面可以有前导符号( +或一)，被解析成无符号整数</span></td></tr><tr><td style='text-align:center;' ><span>f, e, g</span></td><td style='text-align:center;' ><span>浮点数</span></td><td style='text-align:center;' ><span>任意多个数字字符，可以有前导符号(+或一),小数形式可以含小数点，科学计数法含e或者E,后面接10进制整数表示的指数</span></td></tr><tr><td style='text-align:center;' ><span>a</span></td><td style='text-align:center;' ><span>浮点数</span></td><td style='text-align:center;' ><span>C99支持,支持16进制的浮点数表达</span></td></tr><tr><td style='text-align:center;' ><span>c</span></td><td style='text-align:center;' ><span>字符</span></td><td style='text-align:center;' ><span>下一个字符。如果c之前宽度超过1,依次读入宽度个字符到指定的字符数组，但不会在最后添加串结束符</span></td></tr><tr><td style='text-align:center;' ><span>s</span></td><td style='text-align:center;' ><span>字符串</span></td><td style='text-align:center;' ><span>任意多个非空白符字符，遇到第一个空白符停止。自动在最后添加串结束符</span></td></tr><tr><td style='text-align:center;' ><span>p</span></td><td style='text-align:center;' ><span>指针地址</span></td><td style='text-align:center;' ><span>指针的地址值,具体格式依赖于系统和运行库,但和printf中的格式相同</span></td></tr><tr><td style='text-align:center;' ><span>[]</span></td><td style='text-align:center;' ><span>字符扫描集</span></td><td style='text-align:center;' ><span>任意多个方括号内的字符。自动在最后添加串结束符</span></td></tr><tr><td style='text-align:center;' ><span>[^]</span></td><td style='text-align:center;' ><span>无效字符扫描集</span></td><td style='text-align:center;' ><span>任意多个非方括号内的字符。自动在最后添加串结束符</span></td></tr><tr><td style='text-align:center;' ><span>n</span></td><td style='text-align:center;' ><span>计数</span></td><td style='text-align:center;' ><span>不消耗输人字符。将已经读入的字符数存到对应地址参数中</span></td></tr><tr><td style='text-align:center;' ><span>%</span></td><td style='text-align:center;' ><span>百分号</span></td><td style='text-align:center;' ><span>匹配一个 %</span></td></tr></tbody></table></figure><p><span>这些空白符不计入指定的最大宽度。除了 n , 其他方式至少消费一个字符，如果格式不匹配，那么字符扫描到最后匹配失败的那个字符。</span></p><p><span>格式区分符的前面子格式区分符含义如下：</span></p><center>表 4 - 11 子格式区分符含义</center><figure><table><thead><tr><th style='text-align:center;' ><span>修饰符</span></th><th style='text-align:center;' ><span>描述</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>*</span></td><td style='text-align:center;' ><span>表示这个数据被读入，但是不被存储，所以也不需要有对应存储的地址参数</span></td></tr><tr><td style='text-align:center;' ><span>宽度</span></td><td style='text-align:center;' ><span>指定读入的最大字符数</span></td></tr><tr><td style='text-align:center;' ><span>长度</span></td><td style='text-align:center;' ><span>改变格式区分符以适应不同长度的数据类型</span></td></tr></tbody></table></figure><p><span>长度修饰符和格式区分符组合对应的数据类型如下表所示。其中， hh 和 ll 都需要C99标准的支持，表中空的部分表示无对应的类型。</span></p><center>表 4 - 12 长度修饰符表</center><figure><table><thead><tr><th style='text-align:center;' ><span>长度</span></th><th style='text-align:center;' ><span>d i</span></th><th style='text-align:center;' ><span>u o x</span></th><th style='text-align:center;' ><span>f e g a</span></th><th style='text-align:center;' ><span>c s [] [^]</span></th><th style='text-align:center;' ><span>p</span></th><th style='text-align:center;' ><span>n</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>无</span></td><td style='text-align:center;' ><span>int*</span></td><td style='text-align:center;' ><span>unsigned int*</span></td><td style='text-align:center;' ><span>float*</span></td><td style='text-align:center;' ><span>char*</span></td><td style='text-align:center;' ><span>void**</span></td><td style='text-align:center;' ><span>int*</span></td></tr><tr><td style='text-align:center;' ><span>hh</span></td><td style='text-align:center;' ><span>signed char*</span></td><td style='text-align:center;' ><span>unsigned char*</span></td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' ><span>signed char*</span></td></tr><tr><td style='text-align:center;' ><span>h</span></td><td style='text-align:center;' ><span>short*</span></td><td style='text-align:center;' ><span>unsigned short*</span></td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>l</span></td><td style='text-align:center;' ><span>long*</span></td><td style='text-align:center;' ><span>unsigned long*</span></td><td style='text-align:center;' ><span>double*</span></td><td style='text-align:center;' ><span>wchar_t*</span></td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' ><span>long*</span></td></tr><tr><td style='text-align:center;' ><span>ll</span></td><td style='text-align:center;' ><span>long long*</span></td><td style='text-align:center;' ><span>unsigned long long*</span></td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' ><span>long long*</span></td></tr><tr><td style='text-align:center;' ><span>L</span></td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' ><span>long double*</span></td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td></tr></tbody></table></figure><p><span>... 为不定参数，表示各格式描述符指定存储的地址。需要注意的是：</span></p><ul><li><span>存储类型需要与格式描述符对应的类型相匹配；</span></li><li><span>存储的地址数与需要存储的格式描述符数相同；</span></li><li><span>存储的地址是与需要存储的格式描述符顺序相对应的。</span></li></ul><p><span> scanf 的返回值为 int 型，表示函数正确输入的数据的个数，函数执行失败(比如，输入结束或文件尾)时，返回 EOF 宏（ stdio.h 中定义的宏值，End of File 的缩写，一般被定义为 -1）。比如下面的程序:</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stdio.h&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">a</span>, <span class="cm-variable">b</span>, <span class="cm-variable">c</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">c</span> <span class="cm-operator">=</span> <span class="cm-variable">scanf</span>(<span class="cm-string">"%d %d"</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">a</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">b</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d %d %d\n"</span>, <span class="cm-variable">a</span>, <span class="cm-variable">b</span>, <span class="cm-variable">c</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 230px;"></div><div class="CodeMirror-gutters" style="height: 230px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><p><span>如果输入“12 34”，那么格式符合格式描述，将正确读入2个数据，所以c值为2；如果输入“12,34”，那么第一个数据正确读入，后面失败，c的值为1；如果输入“a12 34”，一开始读入就失败，所以c的值为0 。</span></p><p><span>如果遇到输入结束，比如输入“Ctrl+Z”（这是在Windows系统中，Linux系统为“Ctrl+D”），scanf 返回 EOF 宏值，此时c的值为 -1 。一般很少使用 scanf 函数的返回值，但有时可以利用它作为输入是否结束的标志。</span></p><p><span>使用宽度修饰，可以限定解析字符的最大长度，比如下面的程序，输入“123”，分别将1 、2 、3存入变量a、b、c 。</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stdio.h&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">a</span>, <span class="cm-variable">b</span>, <span class="cm-variable">c</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">scanf</span>(<span class="cm-string">"%1d%1d%1d"</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">a</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">b</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">c</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d %d %d\n"</span>, <span class="cm-variable">a</span>, <span class="cm-variable">b</span> ,<span class="cm-variable">c</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 230px;"></div><div class="CodeMirror-gutters" style="height: 230px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><p><span>使用 n 区分符，可以获得已经正确读入的字符数，这个在 scanf 函数中用的比较少，更多使用在 sscanf 函数中。</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 39px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 35px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>10</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -35px; width: 35px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stdio.h&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">a</span>, <span class="cm-variable">b</span>, <span class="cm-variable">c</span>, <span class="cm-variable">d</span>, <span class="cm-variable">e</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">e</span> <span class="cm-operator">=</span> <span class="cm-variable">scanf</span>(<span class="cm-string">"%d %n %d %n"</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">a</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">b</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">c</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">d</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d %d %d %d %d"</span>, <span class="cm-variable">a</span>, <span class="cm-variable">b</span>, <span class="cm-variable">c</span>, <span class="cm-variable">d</span>, <span class="cm-variable">e</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 如果输入“1234 567”，得到的输出为“1234 4 567 8 2”</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 256px;"></div><div class="CodeMirror-gutters" style="height: 256px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div></div></div></div></pre><p><span>如果使用 [] 区分符配合宽度设定，可以限定输入的字符串必须符合规定，比如手机号码为11位的 0-9 数码，可以用下面的程序输入：</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stdio.h&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">char</span> <span class="cm-variable">s</span>[<span class="cm-number">12</span>];</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">scanf</span>(<span class="cm-string">"%11[0-9]"</span>, <span class="cm-variable">s</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">puts</span>(<span class="cm-variable">s</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 230px;"></div><div class="CodeMirror-gutters" style="height: 230px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><p><span>如果想输入字符串一直到行末，而不是遇到空白符就结束，可以参考下面的程序（也可以使用 gets 函数（C11之前）或 gets_s 函数（C11之后））：</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stdio.h&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">char</span> <span class="cm-variable">s</span>[<span class="cm-number">111</span>];</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">scanf</span>(<span class="cm-string">"%[^\n]"</span>, <span class="cm-variable">s</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">puts</span>(<span class="cm-variable">s</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 230px;"></div><div class="CodeMirror-gutters" style="height: 230px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><h3><a name="451-printf函数" class="md-header-anchor"></a><span>4.5.1 printf函数</span></h3><p><span> printf 函数为标准输出函数，即向屏幕（stdout 文件）输出一个字符串，根据格式描述字符串中指定的格式，将对应参数的值转成指定格式的字符串。其函数原型为：</span></p><pre>	int printf(const char *format, ...)</pre><p><span>其中 format 为格式描述字符串，每个格式描述符的格式为：</span></p><pre>	% [ 标志 ] [ 宽度 ] [ . 精度 ] [ 长度 ] 格式区分符 ，</pre><p><span>其中，[ ] 表示可选。</span></p><center>表 4 - 13 printf 的格式区分符</center><figure><table><thead><tr><th style='text-align:center;' ><span>格式区分符</span></th><th style='text-align:center;' ><span>输出</span></th><th style='text-align:center;' ><span>样例</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>d i</span></td><td style='text-align:center;' ><span>10 进制有符号整数</span></td><td style='text-align:center;' ><span>987</span></td></tr><tr><td style='text-align:center;' ><span>u</span></td><td style='text-align:center;' ><span>10 进制无符号整数</span></td><td style='text-align:center;' ><span>312345678</span></td></tr><tr><td style='text-align:center;' ><span>o</span></td><td style='text-align:center;' ><span>8 进制无符号整数</span></td><td style='text-align:center;' ><span>520</span></td></tr><tr><td style='text-align:center;' ><span>x X</span></td><td style='text-align:center;' ><span>16 进制无符号整数，</span><br><span>x 使用 a-f 表示，X 使用 A-F 表示</span></td><td style='text-align:center;' ><span>fe01</span><br><span>FE01</span></td></tr><tr><td style='text-align:center;' ><span>f F</span></td><td style='text-align:center;' ><span>浮点数，小数形式输出，默认精度为小数点后6位</span></td><td style='text-align:center;' ><span>3.141593</span></td></tr><tr><td style='text-align:center;' ><span>e E</span></td><td style='text-align:center;' ><span>浮点数，科学计数法形式输出</span></td><td style='text-align:center;' ><span>1.000000e-006</span></td></tr><tr><td style='text-align:center;' ><span>g G</span></td><td style='text-align:center;' ><span>浮点数，根据指数和有效数字位数来确定输出格式</span></td><td style='text-align:center;' ><span>1.2</span><br><span>1e-005</span></td></tr><tr><td style='text-align:center;' ><span>a A</span></td><td style='text-align:center;' ><span>浮点数，16 进制浮点数表示</span></td><td style='text-align:center;' ><span>0x1.000000p+0</span><br><span>0X1.000000P+0</span></td></tr><tr><td style='text-align:center;' ><span>c</span></td><td style='text-align:center;' ><span>1 个字符</span></td><td style='text-align:center;' ><span>a</span></td></tr><tr><td style='text-align:center;' ><span>s</span></td><td style='text-align:center;' ><span>1 个字符串</span></td><td style='text-align:center;' ><span>hello world</span></td></tr><tr><td style='text-align:center;' ><span>p</span></td><td style='text-align:center;' ><span>地址值</span></td><td style='text-align:center;' ><span>0061FE44</span></td></tr><tr><td style='text-align:center;' ><span>n</span></td><td style='text-align:center;' ><span>不输出，将已正确输出字符的数存储到对应参数中</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>%</span></td><td style='text-align:center;' ><span>% ，必须使用 %%</span></td><td style='text-align:center;' >&nbsp;</td></tr></tbody></table></figure><p><span>要注意，很多 Windows 平台的编译器中不支持格式区分符中的 n 。</span></p><p><span>标志是可选的，可以有 1 个或者多个，具体如下表。</span></p><center>表 4 - 14 printf格式描述符的标志含义</center><figure><table><thead><tr><th style='text-align:center;' ><span>标志</span></th><th style='text-align:center;' ><span>描述</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>-</span></td><td style='text-align:center;' ><span>左对齐输出，默认为右对齐</span></td></tr><tr><td style='text-align:center;' ><span>+</span></td><td style='text-align:center;' ><span>总是输出符号，为负时输出符号</span></td></tr><tr><td style='text-align:center;' ><span>空格</span></td><td style='text-align:center;' ><span>若有符号转换的结果不以符号开始，或为空，则前置空格于结果。若存在 + 标签则忽略空格</span></td></tr><tr><td style='text-align:center;' ><span>#</span></td><td style='text-align:center;' ><span>使用 o，x 或 X 时，非零值输出对应的前导符 0,0x和0X；</span><br><span>使用浮点数格式描述符时，强制输出包含小数点</span></td></tr><tr><td style='text-align:center;' ><span>0</span></td><td style='text-align:center;' ><span>对于整数和浮点数转换，使用前导零代替空格字符填充域。对于整数，若显示指定精度，则忽略此标签。对于其他转换，使用此标签导致未定义行为。若存在 - 标签则忽略 0</span></td></tr></tbody></table></figure><p><span>宽度也是可选的，有两种：一种是整数，一种是 * 。</span></p><ul><li><p><span>整数 表示最少打印的字符数。如果值对应的打印字符数少于宽度，那么就填充空白或者 0 （如果在标志位使用 0 的话）。如果打印字符数超过宽度，也不会截断，而是按打印字符数进行打印。</span></p><ul><li><span>*表示宽度由后面的参数决定。比如下面的程序，根据用户的输入，打印整数 n 的值，并按 width 来输出，之前填入前导 0 。</span></li></ul><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stdio.h&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">n</span>, <span class="cm-variable">width</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">scanf</span>(<span class="cm-string">"%d %d"</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">n</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">width</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%0*d\n"</span>, <span class="cm-variable">width</span>, <span class="cm-variable">n</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 230px;"></div><div class="CodeMirror-gutters" style="height: 230px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><p><span>精度也为可选项，也有两种：一种是整数，一种是 * 。</span></p><ul><li><span>整数 它不能和标志符 0 组合使用。如果使用整数格式区分符，那么精度表示至少会打印的数码个数。如果超过不会发生截断，使用非 g，G 的浮点数</span></li><li><span>*表示宽度由后面的参数决定。</span></li></ul><p><span>比较常见.</span></p><p><span>*用法是浮点数保留小数点后多少位，比如下面的程序，根据输入，输出浮点数保留小数点后多少位，但要注意超过类型有效数字的精度要求的输出是没有含义的。</span></p></li></ul><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 39px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 35px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>10</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -35px; width: 35px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;stdio.h&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">double</span> <span class="cm-variable">n</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">precision</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">scanf</span>(<span class="cm-string">"%lf %d"</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">n</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">width</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%.*f\n"</span>, <span class="cm-variable">width</span>, <span class="cm-variable">n</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 256px;"></div><div class="CodeMirror-gutters" style="height: 256px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div></div></div></div></pre><p><span>长度修饰符与 scanf 相同。</span></p><p><span>要注意：GNU C 的编译器，不支持使用 1 长度修饰符来输出 double 类型，如果使用 GNU C 的系列编译器，输出 double 类型时，依然和 float 类型相同。这点和 scanf 是不一样的。</span></p><p><span>... 为不定参数，表示个格式描述符对应的参数值。基本要求和 scanf 的要求相同。</span></p><p><span> printf 函数的返回值类型为 int ，表示成功输出的字符数。如果输出失败，则会返回一个负数值。</span></p></div>
+</body>
+</html>
