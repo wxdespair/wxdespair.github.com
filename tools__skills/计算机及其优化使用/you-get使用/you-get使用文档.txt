@@ -1,0 +1,187 @@
+C:\Users\Administrator>you-get
+usage: you-get [OPTION]... URL...
+
+A tiny downloader that scrapes the web
+
+optional arguments:
+  -V, --version         Print version and exit
+  -h, --help            Print this help message and exit
+
+Dry-run options:
+  (no actual downloading)
+
+  -i, --info            Print extracted information
+  -u, --url             Print extracted information with URLs
+  --json                Print extracted URLs in JSON format
+
+Download options:
+  -n, --no-merge        Do not merge video parts
+  --no-caption          Do not download captions (subtitles, lyrics, danmaku,
+                        ...)
+  -f, --force           Force overwriting existing files
+  -F STREAM_ID, --format STREAM_ID
+                        Set video format to STREAM_ID
+  -O FILE, --output-filename FILE
+                        Set output filename
+  -o DIR, --output-dir DIR
+                        Set output directory
+  -p PLAYER, --player PLAYER
+                        Stream extracted URL to a PLAYER
+  -c COOKIES_FILE, --cookies COOKIES_FILE
+                        Load cookies.txt or cookies.sqlite
+  -t SECONDS, --timeout SECONDS
+                        Set socket timeout
+  -d, --debug           Show traceback and other debug info
+  -I FILE, --input-file FILE
+                        Read non-playlist URLs from FILE
+  -P PASSWORD, --password PASSWORD
+                        Set video visit password to PASSWORD
+  -l, --playlist        Prefer to download a playlist
+  -a, --auto-rename     Auto rename same name different files
+  -k, --insecure        ignore ssl errors
+
+Proxy options:
+  -x HOST:PORT, --http-proxy HOST:PORT
+                        Use an HTTP proxy for downloading
+  -y HOST:PORT, --extractor-proxy HOST:PORT
+                        Use an HTTP proxy for extracting only
+  --no-proxy            Never use a proxy
+  -s HOST:PORT, --socks-proxy HOST:PORT
+                        Use an SOCKS5 proxy for downloading
+
+有道翻译：
+一个很小的下载程序，可以抓取网页
+
+
+
+
+
+可选参数:
+
+
+-V，——版本打印版本并退出
+
+
+-h，——帮助打印此帮助消息并退出
+
+
+
+
+
+即将选择:
+
+
+(没有实际下载)
+
+
+
+
+
+-- -信息打印提取信息
+
+
+用url打印提取的信息
+
+
+——json打印以json格式提取的url
+
+
+
+
+
+下载选项:
+
+
+-n，——无合并不合并视频部分
+
+不要下载字幕(字幕，歌词，弹幕，
+
+…)
+
+
+强制重写现有文件
+
+
+-F STREAM_ID，——格式化STREAM_ID
+
+
+设置视频格式为STREAM_ID
+
+
+-O文件，——输出文件名文件
+
+
+设置输出文件名
+
+
+-o DIR，——output-dir DIR
+
+
+设置输出目录
+
+
+-p player
+
+
+流提取URL到播放器
+
+
+-c COOKIES_FILE，——cookie COOKIES_FILE
+
+
+加载cookie .txt或cookie .sqlite
+
+
+-t秒，-超时秒
+
+
+设置套接字超时
+
+
+显示回溯和其他调试信息
+
+
+-I文件，-input-file文件
+
+
+从文件中读取非播放列表url
+
+
+-P密码，-密码密码
+
+
+设置视频访问密码为密码
+
+
+喜欢下载播放列表
+
+自动重命名自动重命名相同的名称不同的文件
+
+
+-k，——不安全忽略ssl错误
+
+
+
+
+
+代理选项:
+
+
+-x主机:端口，-http-proxy主机:端口
+
+
+使用HTTP代理进行下载
+
+
+-y HOST:端口，——extractor-proxy HOST:端口
+
+
+只使用HTTP代理进行提取
+
+永远不要使用代理
+
+
+-s主机:端口，——sock -proxy主机:端口
+
+
+使用SOCKS5代理进行下载

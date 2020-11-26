@@ -1,0 +1,92 @@
+>> x = [1 2 3]
+
+x =
+
+     1     2     3
+
+>> x = [1 2 3;4 5 6]                    // 矩阵的建立
+
+x =
+
+     1     2     3
+     4     5     6
+
+>> A = [1 2;1 2]
+
+A =
+
+     1     2
+     1     2
+
+>> B = [3 4;5 6]
+
+B =
+
+     3     4
+     5     6
+
+>> A + B
+
+ans =
+
+     4     6
+     6     8
+
+>> A - B
+
+ans =
+
+    -2    -2
+    -4    -4
+
+>> A * B                                // 矩阵乘法运算
+
+ans =
+
+    13    16
+    13    16
+
+>> A .* B                               // 非正常矩阵乘法，乘号前加点代表乘法会逐个对应相乘，而不是矩阵的乘法运算
+
+ans =
+
+     3     8
+     5    12
+
+>> // m文件作为MATLAB中的脚本，多用于集成语句和建立与用户的交互，脚本中不想显示的语句可以在语句后加入分号，从而隐藏输出
+>> a = 10
+
+a =
+
+    10
+
+>> fprintf('a = %g\n', a)
+a = 10
+>> disp(a)															% disp是另一种可以实现打印输出的内置函数
+    10
+
+>> disp(a);
+    10
+
+>> disp(['xiaoyan','lindong','muchen']);							% 使用disp函数链接字符串时要添加中括号
+xiaoyanlindongmuchen
+>> disp(['xiaoyan', 'lindong', 'muchen']);
+xiaoyanlindongmuchen
+>> disp(['xiaoyan  ', 'lindong  ', 'muchen  ']);
+xiaoyan  lindong  muchen  
+>> fr1 = 'xianyan';
+>> fr2 = 'lindong';
+>> fr3 = 'muchen';
+>> disp([fr1,fr2,fr3]);
+xianyanlindongmuchen
+>> mod(371, 196)													% mod函数可以计算除法的余数
+
+ans =
+
+   175
+
+>> mod(9, 3)
+
+ans =
+
+     0
