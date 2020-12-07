@@ -327,17 +327,115 @@ $$
 |  $\min$   | \min    |   $\Pr$   | \Pr     |  $\sec$   | \sec    |  $\sin$   | \sin    |
 |  $\sinh$  | \sinh   |  $\sup$   | \sup    |  $\tan$   | \tan    |  $\tanh$  | \tanh   |
 
-
-
 ### 1.4 $Binary~Operation/Relation~Symbols$
 
-
+|      LaTeX显示      | 语句              |      LaTeX显示       | 语句               |       LaTeX显示       | 语句                |     LaTeX显示      | 语句             |
+| :-----------------: | ----------------- | :------------------: | ------------------ | :-------------------: | ------------------- | :----------------: | ---------------- |
+|       $\ast$        | \ast              |        $\pm$         | \pm                |        $\cap$         | \cap                |       $\lhd$       | \lhd             |
+|       $\star$       | \star             |        $\mp$         | \mp                |        $\cup$         | \cup                |       $\rhd$       | \rhd             |
+|       $\cdot$       | \cdot             |       $\amalg$       | \amalg             |       $\uplus$        | \uplus              |  $\triangleleft$   | \triangleleft    |
+|       $\circ$       | \circ             |       $\odot$        | \odot              |       $\sqcap$        | \sqcap              |  $\triangleright$  | \triangleright   |
+|  $\bull或\bullet$   | \bull或\bullet    |      $\ominus$       | \ominus            |       $\sqcup$        | \sqcup              |      $\unlhd$      | \unlhd           |
+|     $\bigcirc$      | \bigcirc          |       $\oplus$       | \oplus             |       $\wedge$        | \wedge              |      $\unrhd$      | \unrhd           |
+|     $\diamond$      | \diamond          |      $\oslash$       | \oslash            |        $\vee$         | \vee                | $\bigtriangledown$ | \bigtriangledown |
+|      $\times$       | \times            |      $\otimes$       | \otimes            |       $\dagger$       | \dagger             |  $\bigtriangleup$  | \bigtriangleup   |
+|       $\div$        | \div              |        $\wr$         | \wr                |      $\ddagger$       | \ddagger            |    $\setminus$     | \setminus        |
+|    $\centerdot$     | \centerdot        |        $\Box$        | \Box               |      $\barwedge$      | \barwedge           |     $\veebar$      | \veebar          |
+|    $\circledast$    | \circledast       |      $\boxplus$      | \boxplus           |     $\curlywedge$     | \curlywedge         |    $\curlyvee$     | \curlyvee        |
+|   $\circledcirc$    | \circledcirc      |     $\boxminus$      | \boxminus          |        $\Cap$         | \Cap                |       $\Cup$       | \Cup             |
+|   $\circleddash$    | \circleddash      |     $\boxtimes$      | \boxtimes          |        $\bot$         | \bot                |       $\top$       | \top             |
+|     $\dotplus$      | \dotplus          |      $\boxdot$       | \boxdot            |      $\intercal$      | \intercal           | $\rightthreetimes$ | \rightthreetimes |
+|  $\divideontimes$   | \divideontimes    |      $\square$       | \square            |   $\doublebarwedge$   | \doublebarwedge     | $\leftthreetimes$  | \leftthreetimes  |
+|      $\equiv$       | \equiv            |        $\leq$        | \leq               |        $\geq$         | \geq                |      $\perp$       | \perp            |
+|       $\cong$       | \cong             |       $\prec$        | \prec              |        $\succ$        | \succ               |       $\mid$       | \mid             |
+|       $\neq$        | \neq              |      $\preceq$       | \preceq            |       $\succeq$       | \succeq             |    $\parallel$     | \parallel        |
+|       $\sim$        | \sim              |        $\ll$         | \ll                |         $\gg$         | \gg                 |     $\bowtie$      | \bowtie          |
+|      $\simeq$       | \simeq            |      $\subset$       | \subset            |       $\supset$       | \supset             |      $\Join$       | \Join            |
+|      $\approx$      | \approx           |     $\subseteq$      | \subseteq          |      $\supseteq$      | \supseteq           |     $\ltimes$      | \ltimes          |
+|      $\asymp$       | \asymp            |     $\sqsubset$      | \sqsubset          |      $\sqsupset$      | \sqsupset           |     $\rtimes$      | \rtimes          |
+|      $\doteq$       | \doteq            |    $\sqsubseteq$     | \sqsubseteq        |     $\sqsupseteq$     | \sqsupseteq         |      $\smile$      | \smile           |
+|      $\propto$      | \propto           |       $\dashv$       | \dashv             |       $\vdash$        | \vdash              |      $\frown$      | \frown           |
+|      $\models$      | \models           |        $\in$         | \in                |         $\ni$         | \ni                 |      $\notin$      | \notin           |
+|     $\approxeq$     | \approxeq         |       $\leqq$        | \leqq              |        $\geqq$        | \geqq               |     $\lessgtr$     | \lessgtr         |
+|     $\thicksim$     | \thicksim         |     $\leqslant$      | \leqslant          |      $\geqslant$      | \geqslant           |    $\lesseqgtr$    | \lesseqgtr       |
+|     $\backsim$      | \backsim          |    $\lessapprox$     | \lessapprox        |     $\gtrapprox$      | \gtrapprox          |   $\lesseqqgtr$    | \lesseqqgtr      |
+|    $\backsimeq$     | \backsimeq        |        $\lll$        | \lll               |        $\ggg$         | \ggg                |   $\gtreqqless$    | \gtreqqless      |
+|    $\triangleq$     | \triangleq        |      $\lessdot$      | \lessdot           |       $\gtrdot$       | \gtrdot             |    $\gtreqless$    | \gtreqless       |
+|      $\circeq$      | \circeq           |      $\lesssim$      | \lesssim           |       $\gtrsim$       | \gtrsim             |     $\gtrless$     | \gtrless         |
+|      $\bumpeq$      | \bumpeq           |    $\eqslantless$    | \eqslantless       |     $\eqslantgtr$     | \eqslantgtr         |   $\backepsilon$   | \backepsilon     |
+|      $\Bumpeq$      | \Bumpeq           |      $\precsim$      | \precsim           |      $\succsim$       | \succsim            |     $\between$     | \between         |
+|     $\doteqdot$     | \doteqdot         |    $\precapprox$     | \precapprox        |     $\succapprox$     | \succapprox         |    $\pitchfork$    | \pitchfork       |
+|   $\thickapprox$    | \thickapprox      |      $\Subset$       | \Subset            |       $\Supset$       | \Supset             |    $\shortmid$     | \shortmid        |
+|  $\fallingdotseq$   | \fallingdotseq    |     $\subseteqq$     | \subseteqq         |     $\supseteqq$      | \supseteqq          |   $\smallfrown$    | \smallfrown      |
+|   $\risingdotseq$   | \risingdotseq     |     $\sqsubset$      | \sqsubset          |      $\sqsupset$      | \sqsupset           |   $\smallsmile$    | \smallsmile      |
+|    $\varpropto$     | \varpropto        |    $\preccurlyeq$    | \preccurlyeq       |    $\succcurlyeq$     | \succcurlyeq        |      $\Vdash$      | \Vdash           |
+|    $\therefore$     | \therefore        |    $\curlyeqprec$    | \curlyeqprec       |    $\curlyeqsucc$     | \curlyeqsucc        |      $\vDash$      | \vDash           |
+|     $\because$      | \because          | $\blacktriangleleft$ | \blacktriangleleft | $\blacktriangleright$ | \blacktriangleright |     $\Vvdash$      | \Vvdash          |
+|      $\eqcirc$      | \eqcirc           |  $\trianglelefteq$   | \trianglelefteq    |  $\trianglerighteq$   | \trianglerighteq    |  $\shortparallel$  | \shortparallel   |
+|                     |                   |  $\vartriangleleft$  | \vartriangleleft   |  $\vartriangleright$  | \vartriangleright   | $\nshortparallel$  | \nshortparallel  |
+|      $\ncong$       | \ncong            |       $\nleq$        | \nleq              |        $\ngeq$        | \ngeq               |    $\nsubseteq$    | \nsubseteq       |
+|       $\nmid$       | \nmid             |       $\nleqq$       | \nleqq             |       $\ngeqq$        | \ngeqq              |    $\nsupseteq$    | \nsupseteq       |
+|    $\nparallel$     | \nparallel        |     $\nleqslant$     | \nleqslant         |     $\ngeqslant$      | \ngeqslant          |   $\nsubseteqq$    | \nsubseteqq      |
+|    $\nshortmid$     | \nshortmid        |       $\nless$       | \nless             |        $\ngtr$        | \ngtr               |   $\nsupseteqq$    | \nsupseteqq      |
+|  $\nshortparallel$  | \nshortparallel   |       $\nprec$       | \nprec             |       $\nsucc$        | \nsucc              |    $\subsetneq$    | \subsetneq       |
+|       $\nsim$       | \nsim             |      $\npreceq$      | \npreceq           |      $\nsucceq$       | \nsucceq            |    $\supsetneq$    | \supsetneq       |
+|      $\nVDash$      | \nVDash           |    $\precnapprox$    | \precnapprox       |    $\succnapprox$     | \succnapprox        |   $\subsetneqq$    | \subsetneqq      |
+|      $\nvDash$      | \nvDash           |     $\precnsim$      | \precnsim          |      $\succnsim$      | \succnsim           |   $\supsetneqq$    | \supsetneqq      |
+|      $\nvdash$      | \nvdash           |     $\lnapprox$      | \lnapprox          |      $\gnapprox$      | \gnapprox           |  $\varsubsetneq$   | \varsubsetneq    |
+|  $\ntriangleleft$   | \ntriangleleft    |       $\lneq$        | \lneq              |        $\gneq$        | \gneq               |  $\varsupsetneq$   | \varsupsetneq    |
+| $\ntrianglelefteq$  | \ntrianglelefteq  |       $\lneqq$       | \lneqq             |       $\gneqq$        | \gneqq              |  $\varsubsetneqq$  | \varsubsetneqq   |
+|  $\ntriangleright$  | \ntriangleright   |       $\lnsim$       | \lnsim             |       $\gnsim$        | \gnsim              |  $\varsupsetneqq$  | \varsupsetneqq   |
+| $\ntrianglerighteq$ | \ntrianglerighteq |     $\lvertneqq$     | \lvertneqq         |     $\gvertneqq$      | \gvertneqq          |                    |                  |
 
 ### 1.5 $Arrow~symbols$
 
+|      LaTeX显示       | 语句               |       LaTeX显示        | 语句                 |      LaTeX显示       | 语句               |
+| :------------------: | ------------------ | :--------------------: | -------------------- | :------------------: | ------------------ |
+|     $\leftarrow$     | \leftarrow         |      $\leftarrow$      | \leftarrow           |      $\uparrow$      | \uparrow           |
+|     $\Leftarrow$     | \Leftarrow         |    $\Longleftarrow$    | \Longleftarrow       |      $\Uparrow$      | \Uparrow           |
+|    $\rightarrow$     | \rightarrow        |   $\longrightarrow$    | \longrightarrow      |     $\downarrow$     | \downarrow         |
+|    $\Rightarrow$     | \Rightarrow        |   $\Longrightarrow$    | \Longrightarrow      |     $\Downarrow$     | \Downarrow         |
+|  $\leftrightarrow$   | \leftrightarrow    | $\longleftrightarrow$  | \longleftrightarrow  |    $\updownarrow$    | \updownarrow       |
+|  $\Leftrightarrow$   | \Leftrightarrow    | $ \Longleftrightarrow$ | \Longleftrightarrow  |    $\Updownarrow$    | \Updownarrow       |
+|      $\mapsto$       | \mapsto            |     $\longmapsto$      | \longmapsto          |      $\nearrow$      | \nearrow           |
+|   $\hookleftarrow$   | \hookleftarrow     |   $\hookrightarrow$    | \hookrightarrow      |      $\searrow$      | \searrow           |
+|   $\leftharpoonup$   | \leftharpoonup     |   $\rightharpoonup$    | \rightharpoonup      |      $\swarrow$      | \swarrow           |
+|  $\leftharpoondown$  | \leftharpoondown   |  $\rightharpoondown$   | \rightharpoondown    |      $\nwarrow$      | \nwarrow           |
+| $\rightleftharpoons$ | \rightleftharpoons |       $\leadsto$       | \leadsto             |                      |                    |
+|  $\dashrightarrow$   | \dashrightarrow    |    $\dashleftarrow$    | \dashleftarrow       |  $\leftleftarrows$   | \leftleftarrows    |
+|  $\leftrightarrows$  | \leftrightarrows   |     $\Lleftarrow$      | \Lleftarrow          | $\twoheadleftarrow$  | \twoheadleftarrow  |
+|   $\leftarrowtail$   | \leftarrowtail     |    $\looparrowleft$    | \looparrowleft       | $\leftrightharpoons$ | \leftrightharpoons |
+|  $\curvearrowleft$   | \curvearrowleft    |   $\circlearrowleft$   | \circlearrowleft     |       $ \Lsh$        | \Lsh               |
+|    $\upuparrows$     | \upuparrows        |    $\upharpoonleft$    | \upharpoonleft       |  $\downharpoonleft$  | \downharpoonleft   |
+|     $\multimap$      | \multimap          | $\leftrightsquigarrow$ | \leftrightsquigarrow |  $\rightleftarrows$  | \rightleftarrows   |
+|  $\rightleftarrows$  | \rightleftarrows   |  $\rightrightarrows$   | \rightrightarrows    |                      |                    |
+| $\twoheadrightarrow$ | \twoheadrightarrow |   $\rightarrowtail$    | \rightarrowtail      |  $\looparrowright$   | \looparrowright    |
+| $\rightleftharpoons$ | \rightleftharpoons |   $\curvearrowright$   | \curvearrowright     | $\circlearrowright$  | \circlearrowright  |
+|        $\Rsh$        | \Rsh               |   $\downdownarrows$    | \downdownarrows      |  $\upharpoonright$   | \upharpoonright    |
+| $\downharpoonright$  | \downharpoonright  |   $\rightsquigarrow$   | \rightsquigarrow     |                      |                    |
+|    $\nleftarrow$     | \nleftarrow        |     $\nrightarrow$     | \nrightarrow         |    $\nLeftarrow$     | \nLeftarrow        |
+|    $\nRightarrow$    | \nRightarrow       |   $\nleftrightarrow$   | \nleftrightarrow     |  $\nLeftrightarrow$  | \nLeftrightarrow   |
 
+### 1.6 $Miscellaneous~symbols$
 
-### 1.6 $Math~mode~accents$
+|   LaTeX显示    | 语句         |   LeTaX显示   | 语句        |  LeTaX显示  | 语句      |        LaTeX显示         | 语句                               |
+| :------------: | ------------ | :-----------: | ----------- | :---------: | --------- | :----------------------: | ---------------------------------- |
+|    $\infty$    | \infty       |   $\forall$   | \forall     |   $\Bbbk$   | \Bbbk     |          $\wp$           | \wp                                |
+|    $\nabla$    | \nabla       |   $\exists$   | \exists     | $\bigstar$  | \bigstar  |         $\angle$         | \angle                             |
+|   $\partial$   | \partial     |  $\nexists$   | \nexists    | $\diagdown$ | \diagdown |     $\measuredangle$     | \measuredangle                     |
+|     $\eth$     | \eth         |  $\emptyset$  | \emptyset   |  $\diagup$  | \diagup   |    $\sphericalangle$     | \sphericalangle                    |
+|  $\clubsuit$   | \clubsuit    | $\varnothing$ | \varnothing | $\Diamond$  | \Diamond  |      $\complement$       | \complement                        |
+| $\diamondsuit$ | \diamondsuit |   $\imath$    | \imath      |   $\Finv$   | \Finv     |     $\triangledown$      | \triangledown                      |
+|  $\heartsuit$  | \heartsuit   |   $\jmath$    | \jmath      |   $\Game$   | \Game     |       $\triangle$        | \triangle                          |
+|  $\spadesuit$  | \spadesuit   |    $\ell$     | \ell        |   $\hbar$   | \hbar     |      $\vartriangle$      | \vartriangle                       |
+|    $\cdots$    | \cdots       |   $\iiiint$   | \iiiint     |  $\hslash$  | \hslash   |     $\blacklozenge$      | \blacklozenge                      |
+|    $\vdots$    | \vdots       |   $\iiint$    | \iiint      | $\lozenge$  | \lozenge  |      $\blacksquare$      | \blacksquare                       |
+|    $\ldots$    | \ldots       |    $\iint$    | \iint       |   $\mho$    | \mho      |     $\blacktriangle$     | \blacktriangle                     |
+|    $\ddots$    | \ddots       |   $\sharp$    | \sharp      |  $\prime$   | \prime    |   $\blacktriangledown$   | \blacktriangledown                 |
+|     $\Im$      | \Im          |    $\flat$    | \flat       |  $\square$  | \square   |       $\backprime$       | \backprime                         |
+|     $\Re$      | \Re          |  $\natural$   | \natural    |   $\surd$   | \surd     | $\circledR and\circledS$ | \circledR <br />and<br />\circledS |
+
+### 1.7 $Math~mode~accents$
 
 |  LaTeX显示  | 语句      |  LaTeX显示  | 语句      |
 | :---------: | --------- | :---------: | --------- |
@@ -347,7 +445,7 @@ $$
 | $\grave{a}$ | \grave{a} |  $\hat{a}$  | \hat{a}   |
 | $\tilde{a}$ | \tilde{a} |  $\vec{a}$  | \vec{a}   |
 
-### 1.7 $Array~environment~,~examples$
+### 1.8 $Array~environment~,~examples$
 
 Simplest version:
 
@@ -434,7 +532,7 @@ f(z) =
 \right.
 $$
 
-### 1.8 $Other~Styles~(math~mode~only)$
+### 1.9 $Other~Styles~(math~mode~only)$
 
 Caligraphic letters: `$\mathcal{A}$` etc.: $\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$
 
@@ -448,9 +546,9 @@ Math bold letters: `$\mathbf{A}$` etc.: $\mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ abcd
 
 花体字母：`$\mathscr{A}$` etc.: $\mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ 
 
-### 1.9 $Font~sizes$
+### 1.10 $Font~sizes$
 
-#### 1.9.0 $Math~Mode$
+#### 1.10.0 $Math~Mode$
 
 | LaTeX显示                                     | 语句                                          |
 | --------------------------------------------- | --------------------------------------------- |
@@ -459,7 +557,7 @@ Math bold letters: `$\mathbf{A}$` etc.: $\mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ abcd
 | ${\scriptstyle \int f^{-1}(x-x_a)\,dx}$       | `{\scriptstyle \int f^{-1}(x-x_a)\,dx}`       |
 | ${\scriptscriptstyle \int f^{-1}(x-x_a)\,dx}$ | `{\scriptscriptstyle \int f^{-1}(x-x_a)\,dx}` |
 
-#### 1.9.1 $Text~Mode$
+#### 1.10.1 $Text~Mode$
 
 |                LaTeX显示 | 语句                      |
 | -----------------------: | ------------------------- |
@@ -473,7 +571,7 @@ Math bold letters: `$\mathbf{A}$` etc.: $\mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ abcd
 |             $\huge huge$ | `\huge huge`              |
 |             $\Huge Huge$ | `\Huge Huge`              |
 
-### 1.10 $Text~Mode:~Accents~and~Symbols$
+### 1.11 $Text~Mode:~Accents~and~Symbols$
 
 | LaTeX显示 | 语句      | LaTeX显示 | 语句 | LaTeX显示 | 语句  |
 | :-------: | --------- | :-------: | ---- | :-------: | ----- |
