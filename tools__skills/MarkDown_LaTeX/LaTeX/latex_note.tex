@@ -1,0 +1,394 @@
+% 导言区
+%% 导言区一般进行全局设置等
+
+\documentclass[UTF8]{ctexart}   %article,book,report,letter
+% 上一行与下面注释的两行是等效的
+% \documentclass[UTF8]{article}
+% \usepackage{ctex}             % 处理中文的宏包
+% 即 ctexart 代表引入 ctex 包的 article 类
+
+% 一般不会在正文中设置过多的命名来调整格式
+% 下面的命令可以建立新命令来表示一些命令，不单单可以实现下面的打印部分文字的功能
+\newcommand{\myfont}{\textit{\textbf{\textsf{利用newcommand创建的新命令显示的文字}}}}
+
+\newcommand{\PRC}{\text{People's Republic of \emph{China}}} % 无参数
+\newcommand{\cp}[2]{#1 cp #2}                               % 带参数
+% \newcommand\cp1[3][cp]{#2 #1 #3}                          % 带默认参数
+
+\title{\heiti My Document}      % 设置标题
+\author{wxdespair}              % 设置作者
+\date{\kaishu \today}           % 设置日期
+
+
+\ctexset{                       % 自定义宏包设置(重写)
+    section ={
+        format+ = \zihao{-4} \heiti \raggedright,
+        name = {,、},
+        number = \chinese{section},
+        beforeskip = 1.0ex plus 0.2ex minus .2ex,
+        afterskip = 1.0ex plus 0.2ex minus .2ex,
+        aftername = \hspace{0pt}
+    },
+    subsection = {
+        format+ = \zihao{5} \heiti \raggedright,
+        name = {,、},
+        number = \chinese{subsection},
+        beforeskip = 1.0ex plus 0.2ex minus .2ex,
+        afterskip = 1.0ex plus 0.2ex minus .2ex,
+        aftername = \hspace{0pt}
+    }
+}
+
+\usepackage{graphicx}   % 用于插图的包
+% 语法：\includegraphics[<options>]{<filename>}
+% 格式：EPS,PDF,PNG,JPEG,BMP
+\graphicspath{{figures/},{images/}}     % 指定图片所在路径，可以设置多个目录方便对图像进行分组
+% 支持的格式的文件写不写扩展名均可
+
+\usepackage{geometry}   % 用于调整页边距的包
+\geometry{a4paper,scale=0.75}
+
+\usepackage{amsmath}    % 用于编辑矩阵
+\usepackage{amssymb}    % 用于编辑多行公式
+
+
+% 正文
+\begin{document}        % 一个tex文件只能有一个 document 区
+    \maketitle          % 在正文中使用该句，才能输出标题、作者、日期等信息
+
+    在命令行可以使用命令 latex filename.tex 对tex文件进行编译，并生成 filename.aux 、 filename.dvi 、 filename.log 三种文件；然后执行命令 pdflatex filename.dvi ，就可以生成pdf文件。使用命令 dvipdfmx filename.dvi 也可以从dvi文件生成pdf。（从dvi生成pdf的命令，前者总报错，一般使用后者，即dvipdfmx）又或者直接使用软件进行快捷编译加预览。
+
+    在命令行使用 xelatex filename.tex 可以直接编译并生成pdf文件。（也会有中间文件产生）
+
+    LaTeX 文件的结构，详情查看 tex 源文件。
+
+    可以使用一对大括号来限定设置的效果范围。
+
+    行内公式：$a^2+b^2=c^2$。
+
+    行间公式：$$a^2+b^2=c^2$$
+
+    带编号的行间公式：
+    \begin{equation}    % 该环境产生带编号的行间公式
+        AB^2 = BC^2 + AC^2.
+    \end{equation}
+
+    目录 {./texlive/2020/texmf-dist/doc/latex} 下存放着LaTeX的宏包，每个宏包一般都有一个使用和信息介绍。也可以在命令行使用命令 texdoc ctex (ctex为包名) 来调出一些使用手册。
+
+    在 \LaTeX 中，每种字体都有5种字体属性：字体编码、字体族、字体系列、字体形状、字体大小。
+    字体编码包括：正文字体编码(OT1、T1、EU1等)、数学字体编码(OML、OMS、OMX等)。
+    字体族包括：罗马字体、无衬线字体、打字机字体。
+    字体系列包括：粗细、宽度。
+    字体形状包括：直立、斜体、伪斜体、小型大写。
+
+    % 字体族设置(罗马textrm，无衬线textsf，打字机texttt)(作用于参数)
+    \textrm{Roman Family} \textsf{Sana Serif Family} \texttt{Typewriter Family}
+
+    %% 又或者直接声明后续的文字都使用某个字体族(作用于后续所有文字)
+    {\rmfamily Roman Family} {\sffamily Sans Serif Family} {\ttfamily Typewriter Family}
+
+    % 字体系列设置(粗细，宽度)
+    \textmd{Medium Series} \textbf{Boldface Series}
+
+    {\mdseries Medium Series} {\bfseries Boldface Series}
+
+    % 字体形状设置(直立，斜，伪斜，小型大写)
+    \textup{Upright Shape} \textit{Italic Shape} \textsl{Slanted Shape} \textsc{Small Caps Shape}
+
+    {\upshape Upright Shape} {\itshape Italic Shape} {\slshape Slanted Shape} {\scshape Small Caps Shape}
+
+    % 中文字体(要使用 ctex 包)
+    {\songti 宋体} \quad {\heiti 黑体} \quad {\fangsong 仿宋} \quad {\kaishu 楷书}
+
+    对于中文的粗体与斜体，分别是使用{\mdseries 黑体}和{\itshape 楷体}来分别的，使用上面的设置也是会相应是显示黑体或楷书。
+
+    % 字体大小的设置，字体大小是与文档宏类中的设置相比较的，且在设置文档宏类时也可以通过中括号来指定文字大小
+    {\tiny tiny}\\{\scriptsize scriptsize}\\{\footnotesize footnotesize}\\
+    {\small small}\\{\normalsize normalsize}\\{\large large}\\
+    {\Large Large}\\{\LARGE LARGE}\\{\huge huge}\\{\Huge Huge}
+
+    % 中文字号设置命令
+    {\zihao{-0} 小初号} {\zihao{5} 五号} {\zihao{2} 二号} {\zihao{-2} 小二号}
+
+    \myfont
+
+    % 篇章结构
+    %% latex中使用 section subsection 来设置章节
+    % \tableofcontents        % 产生目录，但必须是book宏类的文档
+    \section{章节}
+    \subsection{子章节}
+    \subsection{子章节}
+    在编写内容时，使用双反斜杠只换行不换段，即下行没有首行缩进。使用 par 命令可以产生新的段落。或者直接空一行多方便。
+    \subsubsection{子子章节}
+    \section{特殊字符}
+    \subsection{空白字符}
+    % 1em(当前字体中M的宽度)
+    a\quad b 
+
+    % 2em
+    a\qquad b
+
+    % 约 1/6 个 em
+    a\,b a\thinspace b
+
+    % 0.5em
+    a\enspace b
+
+    % 空格
+    a\ b
+
+    % 硬空格
+    a~b
+
+    % 1pc=12pt=4.218mm
+    a\kern 1pc b 
+    
+    a\kern -1em b 
+    
+    a\kern 1em b 
+    
+    a\hspace{35pt}b
+
+    % 占位宽度
+    a\hphantom{xyz}b
+
+    % 弹性长度，充满一整行
+    a\hfill b
+
+    \subsection{\LaTeX 控制符}
+    \# \$ \% \{ \} \~{} \_{} \^{} \textbackslash \&
+    
+    \subsection{排版符号}
+    \S \P \dag \ddag \copyright \pounds
+    
+    \subsection{\TeX 标志符号}
+    \TeX{} \LaTeX{} \LaTeXe{}
+    
+    \subsection{引号}
+    `' `` '' 
+    
+    \subsection{连字符}
+    - -- ---
+
+    \subsection{非英文字符}
+    \oe \OE \ae \AE \aa \AA \o \O \l \L \ss \SS !` ?`
+
+    \subsection{重音符号(以o为例)}
+    \`o \'o \^o \''o \~o \=o \.o \u{o} \v{o} \H{o} \r{o} \t{o} \b{o} \c{o} \d{o}
+    
+    \section{插入图像}
+    % \includegraphics{8463591}
+
+    includegraphics 命令的 <options> 一般有：angle(旋转角度)、scale(缩放因子)、height(固定高度)、width(固定宽度)。
+    在设置高度宽度时可以使用一些特殊的命名来获取当前版式的一些数据，例如 \textbackslash textheight 表示当前版式的高度值，
+    所以可以设置 height=0.1\textbackslash textheight 来控制图像的高度为整个版式高度的0.1 。（可以同时设置多个参数，用逗号隔开）
+
+    例如：\\
+    \includegraphics[width=\textwidth]{8463591}
+
+    \section{插入表格}
+
+    使用tabular环境来绘制表格。
+
+    \begin{tabular}{l c | r|p{0.45\textwidth}|}     
+        % l表示右对齐，c表示居中，r表示左对齐，p可用来指定固定列宽
+        % | 表示显示表格竖线，可以连续使用两个表示双竖线
+        \hline      % 表示添加表格横线，可以连续使用两个表示添加双横线
+        第一列 & 第二列 & 第三列 & 空 \\
+        右对齐文本 & 居中对齐文本 & 左对齐文本 & 固定列宽为0.45版面宽度 \\
+        \hline
+    \end{tabular}
+
+    还有一些其他的宏包可以用于绘制更为复杂的表格，比如：booktab、longtab、tabu等。
+
+    \section{浮动体}
+
+    可以将图像或表格数据放入浮动体环境中来显示，不接合正文，使用会更加方便。
+
+    这里有一张某某某的图像 \ref{fig-1} ，还有一个某某某的表格 \ref{tab-1} 。
+    % \ref{} 命令可以用来引用指定标签的结构体
+
+    \begin{figure}[h]   % 这里的options选项有 h(此处)、t(页顶)、b(页底)、p(独立一页) (默认为tbp)
+        \centering      % 设置居中显示
+        \includegraphics[width=0.5\textwidth]{8463591}
+        \caption{浮动体(图像)的标题，且自动排序}\label{fig-1}   % 设置标签用于正文中的引用
+    \end{figure}
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|l|c|c|r|}     
+            \hline 第一列 & 第二列 & 第三列 & 第四列 \\
+            右对齐文本 & 居中对齐文本 & 居中对齐文本 & 左对齐文本 \\ \hline
+        \end{tabular}
+        \caption{浮动体(表格)的标题，且自动排序}\label{tab-1}
+    \end{table}
+    
+    关于标题控制，可以使用 caption、bicaption 等宏包来更复杂的设置。
+
+    并排与子图表设置可以使用 subcaption、subfig、floatrow 等宏包。
+
+    绕排设置可以使用 picinpar、wrapfig 等宏包。
+
+    \section{数学公式}
+
+    可以使用常用的 \$~\$ 行内公式，也可以使用 \textbackslash ( \textbackslash )，
+    又或者直接使用 math 环境均可。\$ 最常用。
+
+    行间公式有 \$\$~\$\$，也可以用 \textbackslash [ \textbackslash ]，
+    或者使用 displaymath 环境均可。
+    
+    equation 环境可以对公式进行自动排号，而 equation* 环境不会对公式进行自动排号。公式也可以使用 \textbackslash label\{eq:...\} 命令来对公式进行交叉引用(在引用的地方使用ref)。
+
+    添加 amsmath 宏包来编辑矩阵。
+    矩阵有多种使用方法，一种是 gather* 环境下使用不同的矩阵环境
+    (不使用这个环境，在矩阵整体前后添加 
+    \textbackslash [ \textbackslash ] 也可以)：
+
+    \begin{gather*}
+    \begin{matrix}
+        0 & 1 \\ 1 & 0
+    \end{matrix}~~
+    \begin{pmatrix}
+        0 & 1 \\ 1 & 0
+    \end{pmatrix}~~
+    \begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix}~~
+    \begin{Bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{Bmatrix}~~
+    \begin{vmatrix}
+        0 & 1 \\ 1 & 0
+    \end{vmatrix}~~
+    \begin{Vmatrix}
+        0 & 1 \\ 1 & 0
+    \end{Vmatrix}
+    \end{gather*}
+
+    或者：
+
+    \[\begin{matrix}
+        0 & 1 \\ 1 & 0 \\
+    \end{matrix}\]
+
+    还有一种是直接使用无边界矩阵，然后在两端添加整体的括号，但这种方式不会单独生成一部分，与正文一起显示(最好在两端添加 \$ 符号)：
+
+    $\begin{matrix}
+        0 & 1 \\ 1 & 0
+    \end{matrix}~~
+    \left(\begin{matrix}
+        0 & 1 \\ 1 & 0
+    \end{matrix}\right)~~
+    \left|\begin{matrix}
+        0 & 1 \\ 1 & 0
+    \end{matrix}\right|~~
+    \left[\begin{matrix}
+        0 & 1 \\ 1 & 0
+    \end{matrix}\right]$
+    
+    可以使用 \textbackslash hdotsfor{<列数>} 来编辑跨列的省略号：
+    \[
+        \begin{pmatrix}
+            1 & 2 & \dots & n \\
+            \hdotsfor{4} \\
+            m & m+1 & \dots & m+n-1 \\
+        \end{pmatrix}    
+    \]
+
+    使用 smallmatrix 环境可以编辑行内小矩阵：
+    \begin{math}
+    \left(      % 需要手动添加括号
+    \begin{smallmatrix}
+    0 & 1 \\ 1 & 0 \\
+    \end{smallmatrix}
+    \right)
+    \end{math}
+    
+    还有 array 环境也可以进行矩阵编辑(类似于表格环境 tabular)：
+
+    \[
+    \begin{array}{r|r}
+    \frac{1}{2} & 0 \\ \hline
+    0 & -\frac{a}{b}c \\
+    \end{array}  
+    \]
+    
+    同时 array 环境也可用于编辑复杂矩阵：
+
+    % @{<内容>} : 可添加任意内容，不占表项计数
+    % 此处添加一个负值空白，表示向左移-5pt的距离
+    \[
+    \begin{array}{c@{\hspace{-5pt}}l}
+        % 第一行第一列
+        \left(
+            \begin{array}{ccc|ccc}
+                a & \cdots & a & b & &  \\
+                & \ddots & \vdots & \vdots & \ddots & \\
+                & & a & b & \cdots & b \\ \hline
+                & & & c & \cdots & c \\
+                & & & \vdots & & \vdots \\
+                & & & c & \cdots & c \\
+            \end{array}
+        \right) & 
+        % 第一行第二列
+        \begin{array}{l}
+            % \left. 仅表示与 \right\} 配对，什么都不输出
+            \left.\rule{0mm}{7mm}\right\}p\\    % 纵向大括号
+            \\ 
+            \left.\rule{0mm}{7mm}\right\}q
+        \end{array} \\
+        % \\[-5pt]
+        % 第二行第一列
+        \begin{array}{cc}
+            \underbrace{\rule{17mm}{0mm}}_m &   % 横向大括号
+            \underbrace{\rule{17mm}{0mm}}_m 
+        \end{array} & \\
+    \end{array}
+    \]
+    
+    多行公式，使用 gather 环境可以编辑多行公式，并自动编号，
+    也可以在 \textbackslash\textbackslash 前添加 \textbackslash notag 来阻止编号。
+    (gather* 环境则不进行编号)
+
+    \begin{gather}
+        a+b=b+a \\
+        ab = ba \notag \\
+        a \times (b+c) = ab \times ac 
+    \end{gather}
+    
+    可以使用 align 和 align* 环境对公式进行对齐排版，前者编号，后者不编号。
+
+    使用 split 环境可以对一个跨行公式进行编号，编号在中间。
+    \begin{equation}
+        \begin{split}
+            \cos 2x & = \cos^2 x - \sin^2 x \\
+            & = 2\cos^2 x - 1
+        \end{split}
+    \end{equation}
+    
+    cases 环境可以实现编辑 分段函数。(在数学公式中处理中文需要使用 \textbackslash text\{\} 对中文进行包裹，否则无法正常显示)
+    \begin{equation}
+    f(n)=
+    \begin{cases}
+    n/2, & \text{if $n$ is even}\\
+    3n+1,& \text{if $n$ is odd}
+    \end{cases}
+    \end{equation}
+
+    \section{自定义命令和环境}
+    
+    使用 \textbackslash newcommand 在导言区来定义新的命令。
+    命令只能由字母组成，不能以 \textbackslash end 开头。
+    % \newcommand{<命令>}[<参数个数>][<首参数默认值>]{<具体定义>}
+    
+    \PRC
+
+    带参数的命令，参数个数可以从1到9，使用时用 \#1,\#2,\dots,\#9 来代替输入的参数。
+    例如输入命令：\cp{参数1}{参数2}。命令的第二个中括号可以指定参数的默认值，默认指定首个参数的参数值。
+
+    \textbackslash renewcommand 命令可以用来重写已有的命令。
+    
+    可以由 \textbackslash newenvironment 命令新建环境，\textbackslash renewenvironment 重写环境
+    % \newenvironment{<环境名称>}[<参数个数>][<首参数默认值>]{<环境前定义>}{<环境后定义>}
+    % \renewenvironment{<环境名称>}[<参数个数>][<首参数默认值>]{<环境前定义>}{<环境后定义>}
+\end{document}
